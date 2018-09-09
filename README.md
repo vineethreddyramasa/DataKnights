@@ -1,14 +1,12 @@
-# DataKnights
+# _DataKnights_
 Team 6 group project for ISQA 8086
 
-## Research Questions
+## _Research Questions_
 1. How is Bird Banding Data changing over time? ( Changes in migration, breeding and molting indicators)
 2. Are certain types of habitats better or worse for birds and does that change over time?
 3. How are the breeding molting season changes? 
 4. Are these data shift forward and backward through time? 
 5. Are they producing few or more offsprings from year to year?
-
-
 
 ## _Work Plan_
 1. Work Plan & Research Questions 
@@ -28,7 +26,10 @@ Team 6 group project for ISQA 8086
 8. Project Presentation                               
     * _Due(Dec 5, 2018)_
 
-### Effort Allocation
+## _Project Timeline_
+Sept 5th, 2018 - Dec 5th, 2018
+
+### _Effort Allocation_
 1. Work Plan & Research Questions
     * Contributors: Vineeth, Aishwarya, David
     * Proofreader: Vineeth
@@ -53,7 +54,7 @@ Team 6 group project for ISQA 8086
     * Contributors: Vineeth, Aishwarya, Davis
     * Proofreader: Aishwarya
     
-### Background Research
-* Vineeth Reddy
+### _Background Research_
+* Vineeth Reddy - Coyote Creek Field Station Background and Goals
 * Aishwarya Reddy
 * David Krupp
