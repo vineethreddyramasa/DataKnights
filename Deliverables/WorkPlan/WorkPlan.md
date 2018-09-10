@@ -7,6 +7,10 @@
 3. How are the breeding molting season changes? 
 4. Are these data shift forward and backward through time? 
 5. Are they producing few or more offsprings from year to year?
+6. How do changes in habitat type affect the species and guilds?
+7. Are there any major changes in the numbers of certain guilds?
+8. What factors affect the increase or decrease in the guilds? (Food, Habitat, Weather)
+9. How is the Hatch Year bird abundance changing over time? 
 
 ## _Work Plan_
 1. Work Plan & Research Questions 
@@ -56,7 +60,7 @@ Sept 5th, 2018 - Dec 5th, 2018
     
 ## _Background Research_
 * **Vineeth Reddy** - Coyote Creek Field Station Background and Goals
-* **Aishwarya Reddy**
-* **David Krupp**
+* **Aishwarya Reddy** - Coyote Creek Field Station Study Organism or Phenomenon
+* **David Krupp** - 
 
 For License information click **[here](https://github.com/vineethreddyramasa/DataKnights/blob/master/LICENSE)**
