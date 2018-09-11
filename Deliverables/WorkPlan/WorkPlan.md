@@ -14,7 +14,7 @@
 12. Do noticeable seasonal trends exist for different species/guilds?
 
 ## _Stakeholder Questions_
-1. Several major changes in data collection methods seemed to have occured with trap site/operations. Why did this happen in the late 1990's, and should we focus only on data between 2000 and 2016?
+1. Several major changes in data collection methods seemed to have occurred with trap site/operations. Why did this happen in the late 1990's, and should we focus only on data between 2000 and 2016?
 2. Records with the following row IDs appear to have data quality issues with weight: 198966, 16488, 9407, 153546, 251000, 190714, 62874, 144029, 190241, and 154599. Do the stakeholders have a preference on how to handle outliers or potential data quality issues?
 3. Have there been any major changes to habitat in the last 20 years that won't show up in the data?
 4. Should we exclude the following sites from our analysis: 9290U, 9385, 9515, 9590, 9800, 9835, 9890, 990, 9927, and TRAN?
