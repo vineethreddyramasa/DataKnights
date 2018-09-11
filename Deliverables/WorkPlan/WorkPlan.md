@@ -68,6 +68,6 @@ Sept 5th, 2018 - Dec 5th, 2018
 ## _Background Research_
 * **Vineeth Reddy** - Coyote Creek Field Station Background and Goals
 * **Aishwarya Reddy** - Coyote Creek Field Station Study Organism or Phenomenon
-* **David Krupp** - Understanding collection methods on trap locations and hours of operaitons
+* **David Krupp** - Understanding collection methods on trap locations and hours of operations
 
 For License information click **[here](https://github.com/vineethreddyramasa/DataKnights/blob/master/LICENSE)**
