@@ -23,6 +23,7 @@
 * B.A. in Biology from Earlham College
 
 **Interests and Focus**:
+
 His interests include ornithology, avian ecology,  frugivory and seed dispersal, molt and migration, plant-animal interactions and ecosystem services. He participated in various volunteer and citizen scientist programs. He is also interested in teaching biology courses at colleges. He has also published numerous papers on birds ecology.
 
 ### Organizational
@@ -33,6 +34,7 @@ His interests include ornithology, avian ecology,  frugivory and seed dispersal,
 **Stakeholders**:
 
 ### Individual & Organizational:
+
 **Data capabilities (maturity/literacy)**: The data is being collected by various volunteers and citizen scientists and maintained in a number of Excel sheets. Dr. Wenny has some Data Management responsibilities as a part of his job. Data maturiy level can rated as intermediate as he has knowledge of handling data in excel sheets.
 
 **Requirements/needs**:
