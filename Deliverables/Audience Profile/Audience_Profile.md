@@ -4,7 +4,7 @@
 ### Operated by : San Francisco Bay Bird Observatory
 
 ### Individual
-**Name**: Daniel Wenny
+**Name**: Dr. Daniel Wenny
 
 **Role**: Land Bird Lead Biologist
 
@@ -29,7 +29,7 @@ His interests include ornithology, avian ecology,  frugivory and seed dispersal,
 ### Organizational
 **Sector**: Nonprofit Organization
 
-**Mission**: 
+**Mission**: Their Mission Statement is as follows : "_Our primary goal at CCFS is to study the seasonal and long-term population patterns of migratory, breeding, wintering, and resident species in order to provide scientific data to inform riparian management decisions, and for the general scientific community._"
 
 **Stakeholders**:
 
@@ -44,5 +44,6 @@ His interests include ornithology, avian ecology,  frugivory and seed dispersal,
 
 
 **Contributors**:
+
 Vineeth Reddy Ramasahayam has contributed to this Document.
 
