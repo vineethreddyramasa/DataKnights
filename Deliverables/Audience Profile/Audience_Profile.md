@@ -12,7 +12,7 @@
 **Responsibilities**: <br/>
 He works on building Bird surveys and studies various birds, ecological research and project development at Coyote Creek Field Station. He leads the Burrowing Owl Research and also has some data management responsibilities.
  
-**Job Experience**: 
+**Job Experience**:
 * Land Bird Lead Biologist at San Francisco Bay Bird Observatory (2015 - present)
 * Visiting Research Scholar at UC-Berkeley Museum of Vertebrate Zoology (2015 - present)
 * Visiting Assistant Professor at Loras College (2010 -2014)
@@ -47,8 +47,8 @@ The data is being collected by various volunteers and citizen scientists and mai
 
 
 **Contributors**:<br/>
-Vineeth Reddy Ramasahayam has contributed to the Individual, Organization parts of this Document.
-Aishwarya Reddy has contributed to the Organization and Individual & Organizatioanal part of this Document.
+* Vineeth Reddy Ramasahayam has contributed to the Individual, Organization parts of this Document.
+* Aishwarya Reddy has contributed to the Organization and Individual & Organizatioanal part of this Document.
 
 
 **Proof read by**: 
