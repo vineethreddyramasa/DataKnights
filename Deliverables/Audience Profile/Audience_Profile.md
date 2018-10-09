@@ -26,12 +26,12 @@
 
 His interests include ornithology, avian ecology,  frugivory and seed dispersal, molt and migration, plant-animal interactions and ecosystem services. He participated in various volunteer and citizen scientist programs. He is also interested in teaching biology courses at colleges. He has also published numerous papers on birds ecology.
 
-### Organizational
+### Organization
 **Sector**: Nonprofit Organization
 
 **Mission**: Their Mission Statement is as follows : "_Our primary goal at CCFS is to study the seasonal and long-term population patterns of migratory, breeding, wintering, and resident species in order to provide scientific data to inform riparian management decisions, and for the general scientific community._"
 
-**Stakeholders**:
+**Stakeholders**: The Stakeholders of the work done at CCFS are Employees, Volunteers, Citizen Scientists,.....
 
 ### Individual & Organizational:
 
@@ -39,11 +39,15 @@ His interests include ornithology, avian ecology,  frugivory and seed dispersal,
 
 **Requirements/needs**:
 
-**Priorities**
+**Priorities**:
 
 
 
 **Contributors**:
 
-Vineeth Reddy Ramasahayam has contributed to this Document.
+Vineeth Reddy Ramasahayam has contributed to the Individual, Organization parts of this Document.
+Aishwarya Reddy has contributed to the Organization and Individual & Organizatioanal part of this Document.
+
+
+**Proof read by**: 
 
