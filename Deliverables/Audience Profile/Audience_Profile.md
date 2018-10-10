@@ -42,9 +42,8 @@ The Stakeholders of the work done at CCFS are Employees, Volunteers, Citizen Sci
 The data is being collected by various volunteers and citizen scientists and maintained in a number of Excel sheets. Dr. Wenny has some Data Management responsibilities as a part of his job. Data maturiy level can rated as intermediate as he has knowledge of handling data in excel sheets.
 
 **Requirements/needs**:<br/>
-Individual Requirements : Their individual requirements include researching on how birds are being affected due to any climatic changes. To learn about the issues that are faced by the birds due to other factors like habitat loss or pollution. To understand their various aspects of bird migration through bird banding. Bird banding helps them to determine the length travelled by a bird and the path taken during migration. They also study about their reproductive success, social structure and dispersal behavior. 
-
-Organizational Requirements : Their organizational requirements include avian study and research with the help of the community, land managers, bird conservatories, universities, etc. Their aim is to protect the birds from various diseases in the changing ecosystem and to help them survive longer. 
+Their requirements include researching on how birds are being affected due to any climatic changes. To learn about the issues that are faced by the birds due to other factors like habitat loss or pollution. To understand their various aspects of bird migration through bird banding. Bird banding helps them to determine the length travelled by a bird and the path taken during migration. They also study about their reproductive success, social structure and dispersal behavior. 
+Their organizational goals include avian study and research with the help of the community, land managers, bird conservatories, universities, etc. Their aim is to protect the birds from various diseases in the changing ecosystem and to help them survive longer. 
 
 **Priorities**:<br/>
 To understand the patterns of different bird species, their migration, behavior, survival rate, population growth, life span, etc. To educate the society on factors that affect the birds and spread the environmental knowledge. To spread an awareness on avian conservation and avian science. 
