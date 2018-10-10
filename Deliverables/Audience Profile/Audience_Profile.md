@@ -1,65 +1,75 @@
 # Audience Profile
 
-## Organization : Coyote Creek Field Station
-### Operated by : San Francisco Bay Bird Observatory
+### Project: Coyote Creek Field Station        
+### Organization: San Francisco Bay Bird Observatory
 
-### Individual
+## Individuals
 
 **Name**: Dr. Daniel Wenny 
 
 **Role**: Land Bird Lead Biologist
 
-**Responsibilities**: <br/>
-He works on building Bird surveys and studies various birds, ecological research and project development at Coyote Creek Field Station. He leads the Burrowing Owl Research and also has some data management responsibilities.
+**Responsibilities**     
+Dr. Wenny specializes in bird research and leads project development at the Coyote Creek Field Station. He is involved in multiple research projects and has data management responsibilities.
  
-**Job Experience**:
+**Job Experience**
 * Land Bird Lead Biologist at San Francisco Bay Bird Observatory (2015 - present)
 * Visiting Research Scholar at UC-Berkeley Museum of Vertebrate Zoology (2015 - present)
 * Visiting Assistant Professor at Loras College (2010 -2014)
 * Community Educator at Jo Daviess Conservation Foundation (2009-2010)
 * Assistant/ Associate research scientist at Illinois Natural History Survey (1998-2009)
 
-**Education Background**: 
+**Education Background** 
 * Ph.D. in Zoology from University of Florida 
 * M.A. in Biology from University of Missouri-Columbia
 * B.A. in Biology from Earlham College
 
-**Interests and Focus**:<br/>
-His interests include ornithology, avian ecology,  frugivory and seed dispersal, molt and migration, plant-animal interactions and ecosystem services. He participated in various volunteer and citizen scientist programs. He is also interested in teaching biology courses at colleges. He has also published numerous papers on birds ecology.
+**Interests**    
+Dr. Wenny’s interests include ornithology, avian ecology, frugivory, seed dispersal, molting trends, migration patterns, plant-animal interactions, and ecosystem services. Dr. Wenny volunteers time to help with different science programs and teaches biology for local colleges.
 
-### Organization
-**Sector**: Nonprofit Organization
+**Name**: Mr. Josh Scullen 
 
-**Mission**: <br/>
-Their Mission Statement is as follows : "_Our primary goal at CCFS is to study the seasonal and long-term population patterns of migratory, breeding, wintering, and resident species in order to provide scientific data to inform riparian management decisions, and for the general scientific community._"
+**Role**: Landbird Program Director
 
-**Stakeholders**:<br/>
-The Stakeholders of the work done at CCFS are Employees, Volunteers, Citizen Scientists, Government agencies, Partner organizations, Directors, Donors and the community.  
+**Responsibilities**            
+Mr. Scullen is the Landbird Program Director. He works in the field to regularly collect and record data from captured birds to support scientific research and analysis. 
 
-### Individual & Organizational:
+## Organization      
+**Name**: San Francisco Bay Bird Observatory      
+**Type**: Nonprofit Organization
 
-**Data capabilities (maturity/literacy)**:<br/>
-The data is being collected by various volunteers and citizen scientists and maintained in a number of Excel sheets. Dr. Wenny has some Data Management responsibilities as a part of his job. Data maturiy level can rated as intermediate as he has knowledge of handling data in excel sheets.
+**Mission Statement**          
+"_Our primary goal at CCFS is to study the seasonal and long-term population patterns of migratory, breeding, wintering, and resident species in order to provide scientific data to inform riparian management decisions, and for the general scientific community._"
 
-**Requirements/needs**:<br/>
-Their requirements include researching on how birds are being affected due to any climatic changes. To learn about the issues that are faced by the birds due to other factors like habitat loss or pollution. To understand the various aspects of bird migration through bird banding. Bird banding helps them to determine the length travelled by a bird and the path taken during migration. They also study about their reproductive success, social structure and dispersal behavior. 
-Their organizational goals include avian study and research with the help of the community, land managers, bird conservatories, universities, etc. Their aim is to protect the birds from various diseases in the changing ecosystem and to help them survive longer. 
+**Stakeholders**     
+The internal stakeholders, which are mostly comprised of the executive team and the Board of Directors, are scientists and researchers that specialize in Biology, Ecology, and Environmental Studies.
 
-**Priorities**:<br/>
-To understand the patterns of different bird species, their migration, behavior, survival rate, population growth, life span, etc. To educate the society on factors that affect the birds and spread the environmental knowledge. To spread an awareness on avian conservation and avian science. 
+The Executive Director for the San Francisco Bay Bird Observatory is Dr. Yiwei Wang. Dr. Wang’s two biggest goals are finding ways to improve the coexistence between humans and animals, and how to make scientific data more available and useful to people outside the organization.
 
-**References**:
+Primarily, our data visualizations will be used by specialists in the field to help develop insights and direct future research and analysis. The data visualizations need to be accurate and well-documented for a scientific audience, which should use a functional design that incorporates established best practices. Research from the field of information design will help us create effective visual communication for scientific data.
+
+However, our team should also consider a broader audience, because the San Francisco Bay Bird Observatory’s goals are more than simply having a better understanding of bird trends and patterns. The organization also wants to increase the awareness of its bird research to help improve understanding among people in the general population. By presenting this information to a broader audience, who will be potentially unfamiliar with the underlying data, we will have an additional emphasis on usability, clarity, and intuitiveness when designing our data visualizations.
+
+**Data capabilities (maturity/literacy)**       
+Current data capabilities at the San Francisco Bay Bird Observatory seem to be mixed. The data collection is a manual process and assisted by various volunteers and citizen scientists. The data sources appear to be mostly kept in Excel spreadsheets and the reporting is typically shared through static PDF files.
+
+Our team consider's the raw data skills for the researchers associated with this program to be at a high level, because they have domain knowledge and familiarity with the data collection process. It’s also likely they have experience with more data-intensive scientific research. However, based on the reports shared on the San Francisco Bay Bird Observatory’s website, their data visualization capabilities are not sophisticated.
+
+**Priorities**               
+The San Francisco Bay Bird Observatory is interested in how changes in the climate and human activity are affecting bird habitats, migration patterns, and general health. The organization studies reproductive patterns, social structure, and dispersal behavior. This research is helped by land managers, the community, and partnerships with various universities and bird conservatories.
+
+Bird research can have many areas of focus, which may include the analysis of different patterns in migration, behavior, survival rate, population growth, and life span. In addition to this internal research, the San Francisco Bay Bird Observatory would benefit from finding creative ways to better educate and increase awareness to the broader public on factors that impact the health and size of bird populations.
+
+**References**     
 * https://www.sfbbo.org/about.html
 * https://www.sfbbo.org/our-staff.html
-* https://www.linkedin.com/in/dwennybirdworks/ 
 * https://www.sfbbo.org/coyote-creek-field-station-landbird-banding-research.html
 * https://www.sfbbo.org/avian-science.html
 * https://www.sfbbo.org/issues-birds-face.html
 
-**Contributors**:
+**Contributors**       
 * Vineeth Reddy Ramasahayam has contributed to the Individual, Organization parts of this Document.
 * Aishwarya Reddy has contributed to the Organization and Individual & Organizational part of this Document.
 
-
-**Proof read by**: 
-
+**Proofreader**     
+* David Krupp
