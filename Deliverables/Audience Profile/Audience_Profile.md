@@ -44,7 +44,9 @@ The data is being collected by various volunteers and citizen scientists and mai
 
 **Priorities**:
 
-
+**References**:
+* https://www.sfbbo.org/our-staff.html
+* https://www.linkedin.com/in/dwennybirdworks/ 
 
 **Contributors**:<br/>
 * Vineeth Reddy Ramasahayam has contributed to the Individual, Organization parts of this Document.
