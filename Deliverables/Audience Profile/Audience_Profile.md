@@ -61,7 +61,7 @@ However, our team should also consider a broader audience, because the San Franc
 
 Current data capabilities at the San Francisco Bay Bird Observatory seem to be mixed. The data collection is a manual process and assisted by various volunteers and citizen scientists. The data sources appear to be mostly kept in Excel spreadsheets and the reporting is typically shared through static PDF files.
 
-Our team consider's the raw data skills for the researchers associated with this program to be at a high level, because they have domain knowledge and familiarity with the data collection process. It’s also likely they have experience with more data-intensive scientific research. However, based on the reports shared on the San Francisco Bay Bird Observatory’s website, their data visualization capabilities are not sophisticated.
+Our team considers the raw data skills for the researchers associated with this program to be at a high level, because they have domain knowledge and familiarity with the data collection process. It’s also likely they have experience with more data-intensive scientific research. However, based on the reports shared on the San Francisco Bay Bird Observatory’s website, their data visualization capabilities are not sophisticated.
 
 **Priorities**
 
