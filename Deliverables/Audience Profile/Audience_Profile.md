@@ -73,7 +73,7 @@ Bird research can have many areas of focus, which may include the analysis of di
 
 **Contributors**       
 * Vineeth Reddy Ramasahayam has contributed to the Individual, Organization parts of this Document.
-* Aishwarya Reddy has contributed to the Organization and Individual & Organizational part of this Document.
+* Aishwarya Reddy has contributed to the Organization and Individual part of this Document.
 
 **Proofreader**     
 * David Krupp
