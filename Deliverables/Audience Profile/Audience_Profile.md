@@ -9,45 +9,40 @@
 
 **Role**: Land Bird Lead Biologist
 
-**Responsibilities**
-
+#### Responsibilities  
 Dr. Wenny specializes in bird research and leads project development at the Coyote Creek Field Station. He is involved in multiple research projects and has data management responsibilities.
  
-**Job Experience**
-
+#### Job Experience    
 * Land Bird Lead Biologist at San Francisco Bay Bird Observatory (2015 - present)
 * Visiting Research Scholar at UC-Berkeley Museum of Vertebrate Zoology (2015 - present)
 * Visiting Assistant Professor at Loras College (2010 -2014)
 * Community Educator at Jo Daviess Conservation Foundation (2009-2010)
 * Assistant/ Associate research scientist at Illinois Natural History Survey (1998-2009)
 
-**Education Background**
-
+#### Education Background  
 * Ph.D. in Zoology from University of Florida 
 * M.A. in Biology from University of Missouri-Columbia
 * B.A. in Biology from Earlham College
 
-**Interests**
-
+#### Interests 
 Dr. Wenny’s interests include ornithology, avian ecology, frugivory, seed dispersal, molting trends, migration patterns, plant-animal interactions, and ecosystem services. Dr. Wenny volunteers time to help with different science programs and teaches biology for local colleges.
 
 **Name**: Mr. Josh Scullen 
 
 **Role**: Landbird Program Director
 
-**Responsibilities**            
+#### Responsibilities          
 Mr. Scullen is the Landbird Program Director. He works in the field to regularly collect and record data from captured birds to support scientific research and analysis. 
 
-## Organization
-
+## Organization      
 **Name**: San Francisco Bay Bird Observatory      
 **Type**: Nonprofit Organization
 
-**Mission Statement**
+#### Mission Statement
 
 "_Our primary goal at CCFS is to study the seasonal and long-term population patterns of migratory, breeding, wintering, and resident species in order to provide scientific data to inform riparian management decisions, and for the general scientific community._"
 
-**Stakeholders**
+#### Stakeholders
 
 The internal stakeholders, which are mostly comprised of the executive team and the Board of Directors, are scientists and researchers that specialize in Biology, Ecology, and Environmental Studies.
 
@@ -57,13 +52,13 @@ Primarily, our data visualizations will be used by specialists in the field to h
 
 However, our team should also consider a broader audience, because the San Francisco Bay Bird Observatory’s goals are more than simply having a better understanding of bird trends and patterns. The organization also wants to increase the awareness of its bird research to help improve understanding among people in the general population. By presenting this information to a broader audience, who will be potentially unfamiliar with the underlying data, we will have an additional emphasis on usability, clarity, and intuitiveness when designing our data visualizations.
 
-**Data capabilities (maturity/literacy)**
+#### Data capabilities (maturity/literacy)
 
 Current data capabilities at the San Francisco Bay Bird Observatory seem to be mixed. The data collection is a manual process and assisted by various volunteers and citizen scientists. The data sources appear to be mostly kept in Excel spreadsheets and the reporting is typically shared through static PDF files.
 
 Our team considers the raw data skills for the researchers associated with this program to be at a high level, because they have domain knowledge and familiarity with the data collection process. It’s also likely they have experience with more data-intensive scientific research. However, based on the reports shared on the San Francisco Bay Bird Observatory’s website, their data visualization capabilities are not sophisticated.
 
-**Priorities**
+#### Priorities
 
 The San Francisco Bay Bird Observatory is interested in how changes in the climate and human activity are affecting bird habitats, migration patterns, and general health. The organization studies reproductive patterns, social structure, and dispersal behavior. This research is helped by land managers, the community, and partnerships with various universities and bird conservatories.
 
