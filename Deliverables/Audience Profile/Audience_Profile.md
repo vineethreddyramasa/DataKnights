@@ -59,7 +59,7 @@ To understand the patterns of different bird species, their migration, behavior,
 
 **Contributors**:
 * Vineeth Reddy Ramasahayam has contributed to the Individual, Organization parts of this Document.
-* Aishwarya Reddy has contributed to the Organization and Individual & Organizatioanal part of this Document.
+* Aishwarya Reddy has contributed to the Organization and Individual & Organizational part of this Document.
 
 
 **Proof read by**: 
