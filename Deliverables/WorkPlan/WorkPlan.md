@@ -45,8 +45,8 @@ Sept 5th, 2018 - Dec 5th, 2018
     * Contributors: Vineeth, Aishwarya, David
     * Proofreader: Vineeth
 2. Audience Profile
-    * Contributors: Vineeth, Aishwarya, David
-    * Proofreader: Aishwarya
+    * Contributors: Vineeth, Aishwarya
+    * Proofreader: David
 3. Data Understanding and Cleaning 
     * Contributors: Vineeth, Aishwarya
     * Proofreader: David
