@@ -72,14 +72,14 @@ This is a complete Bird Banding Data at CCFS over the past 20 years.The dataset 
 10.	Create coye column
     *	CleanedBirdData$coye[CleanedBirdData$SpeciesCode == "COYE"] <- 1
     *	CleanedBirdData$coye[is.na(CleanedBirdData$coye)] <- 0
-11.	Create ageRatio column with recoded values
+11.	Create ageRecode column with recoded values
     *	CleanedBirdData$ageRecode[CleanedBirdData$Age == 2] <- 0
     *	CleanedBirdData$ageRecode[CleanedBirdData$Age == 1] <- 1
     * CleanedBirdData$ageRecode[CleanedBirdData$Age > 4] <- 1
-12.	Create sexRatio column with recoded values
+12.	Create sexRecode column with recoded values
     *	CleanedBirdData$sexRecode[CleanedBirdData$Sex == "M"] <- 1
     *	CleanedBirdData$sexRecode[CleanedBirdData$Sex == "F"] <- 0
-13.	Create fatRatio column with recoded values
+13.	Create fatRecode column with recoded values
     *	CleanedBirdData$fatRecode[CleanedBirdData$Fat == "0"] <- 0
     *	CleanedBirdData$fatRecode[CleanedBirdData$Fat == "1"] <- 1
     *	CleanedBirdData$fatRecode[CleanedBirdData$Fat == "2"] <- 1
@@ -88,19 +88,19 @@ This is a complete Bird Banding Data at CCFS over the past 20 years.The dataset 
     *	CleanedBirdData$fatRecode[CleanedBirdData$Fat == "5"] <- 2
     *	CleanedBirdData$fatRecode[CleanedBirdData$Fat == "6"] <- 2
     *	CleanedBirdData$fatRecode[CleanedBirdData$Fat == "7"] <- 2
-14.	Create broodRatio column with recoded values
+14.	Create broodRecode column with recoded values
     *	CleanedBirdData$broodRecode[CleanedBirdData$BroodPatch == "0"] <- 0
     *	CleanedBirdData$broodRecode[is.na(CleanedBirdData$broodRatio)] <- 1
     *	FullDataFilter$broodRecode[FullDataFilter$BroodPatch == "-"] <- NA
-15.	Create cloacalRatio with recoded values
+15.	Create cloacalRecode with recoded values
     *	CleanedBirdData$cloacalRecode[CleanedBirdData$CloacalProtuberance == "0"] <- 0
     *	CleanedBirdData$cloacalRecode[is.na(CleanedBirdData$cloacalRatio)] <- 1
     *	FullDataFilter$cloacalRecode[FullDataFilter$CloacalProtuberance == "-"] <- NA
-16.	Create moltRatio with recoded values
+16.	Create moltRecode with recoded values
     *	CleanedBirdData$moltRecode[CleanedBirdData$WingMolt == "0"] <- 0
     *	CleanedBirdData$moltRecode[CleanedBirdData$WingMolt == "S"] <- 1
     *	CleanedBirdData$moltRecode[CleanedBirdData$WingMolt == "A"] <- 1
-17.	Create wearRatio with recoded values
+17.	Create wearRecode with recoded values
     *	CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "0"] <- 0
     *	CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "1"] <- 1
     *	CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "2"] <- 1
