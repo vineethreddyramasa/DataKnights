@@ -73,40 +73,40 @@ This is a complete Bird Banding Data at CCFS over the past 20 years.The dataset 
     *	CleanedBirdData$coye[CleanedBirdData$SpeciesCode == "COYE"] <- 1
     *	CleanedBirdData$coye[is.na(CleanedBirdData$coye)] <- 0
 11.	Create ageRatio column with recoded values
-    *	CleanedBirdData$ageRatio[CleanedBirdData$Age == 2] <- 0
-    *	CleanedBirdData$ageRatio[CleanedBirdData$Age == 1] <- 1
-    * CleanedBirdData$ageRatio[CleanedBirdData$Age > 4] <- 1
+    *	CleanedBirdData$ageRecode[CleanedBirdData$Age == 2] <- 0
+    *	CleanedBirdData$ageRecode[CleanedBirdData$Age == 1] <- 1
+    * CleanedBirdData$ageRecode[CleanedBirdData$Age > 4] <- 1
 12.	Create sexRatio column with recoded values
-    *	CleanedBirdData$sexRatio[CleanedBirdData$Sex == "M"] <- 1
-    *	CleanedBirdData$sexRatio[CleanedBirdData$Sex == "F"] <- 0
+    *	CleanedBirdData$sexRecode[CleanedBirdData$Sex == "M"] <- 1
+    *	CleanedBirdData$sexRecode[CleanedBirdData$Sex == "F"] <- 0
 13.	Create fatRatio column with recoded values
-    *	CleanedBirdData$fatRatio[CleanedBirdData$Fat == "0"] <- 0
-    *	CleanedBirdData$fatRatio[CleanedBirdData$Fat == "1"] <- 1
-    *	CleanedBirdData$fatRatio[CleanedBirdData$Fat == "2"] <- 1
-    *	CleanedBirdData$fatRatio[CleanedBirdData$Fat == "3"] <- 2
-    *	CleanedBirdData$fatRatio[CleanedBirdData$Fat == "4"] <- 2
-    *	CleanedBirdData$fatRatio[CleanedBirdData$Fat == "5"] <- 2
-    *	CleanedBirdData$fatRatio[CleanedBirdData$Fat == "6"] <- 2
-    *	CleanedBirdData$fatRatio[CleanedBirdData$Fat == "7"] <- 2
+    *	CleanedBirdData$fatRecode[CleanedBirdData$Fat == "0"] <- 0
+    *	CleanedBirdData$fatRecode[CleanedBirdData$Fat == "1"] <- 1
+    *	CleanedBirdData$fatRecode[CleanedBirdData$Fat == "2"] <- 1
+    *	CleanedBirdData$fatRecode[CleanedBirdData$Fat == "3"] <- 2
+    *	CleanedBirdData$fatRecode[CleanedBirdData$Fat == "4"] <- 2
+    *	CleanedBirdData$fatRecode[CleanedBirdData$Fat == "5"] <- 2
+    *	CleanedBirdData$fatRecode[CleanedBirdData$Fat == "6"] <- 2
+    *	CleanedBirdData$fatRecode[CleanedBirdData$Fat == "7"] <- 2
 14.	Create broodRatio column with recoded values
-    *	CleanedBirdData$broodRatio[CleanedBirdData$BroodPatch == "0"] <- 0
-    *	CleanedBirdData$broodRatio[is.na(CleanedBirdData$broodRatio)] <- 1
-    *	FullDataFilter$broodRatio[FullDataFilter$BroodPatch == "-"] <- NA
+    *	CleanedBirdData$broodRecode[CleanedBirdData$BroodPatch == "0"] <- 0
+    *	CleanedBirdData$broodRecode[is.na(CleanedBirdData$broodRatio)] <- 1
+    *	FullDataFilter$broodRecode[FullDataFilter$BroodPatch == "-"] <- NA
 15.	Create cloacalRatio with recoded values
-    *	CleanedBirdData$cloacalRatio[CleanedBirdData$CloacalProtuberance == "0"] <- 0
-    *	CleanedBirdData$cloacalRatio[is.na(CleanedBirdData$cloacalRatio)] <- 1
-    *	FullDataFilter$cloacalRatio[FullDataFilter$CloacalProtuberance == "-"] <- NA
+    *	CleanedBirdData$cloacalRecode[CleanedBirdData$CloacalProtuberance == "0"] <- 0
+    *	CleanedBirdData$cloacalRecode[is.na(CleanedBirdData$cloacalRatio)] <- 1
+    *	FullDataFilter$cloacalRecode[FullDataFilter$CloacalProtuberance == "-"] <- NA
 16.	Create moltRatio with recoded values
-    *	CleanedBirdData$moltRatio[CleanedBirdData$WingMolt == "0"] <- 0
-    *	CleanedBirdData$moltRatio[CleanedBirdData$WingMolt == "S"] <- 1
-    *	CleanedBirdData$moltRatio[CleanedBirdData$WingMolt == "A"] <- 1
+    *	CleanedBirdData$moltRecode[CleanedBirdData$WingMolt == "0"] <- 0
+    *	CleanedBirdData$moltRecode[CleanedBirdData$WingMolt == "S"] <- 1
+    *	CleanedBirdData$moltRecode[CleanedBirdData$WingMolt == "A"] <- 1
 17.	Create wearRatio with recoded values
-    *	CleanedBirdData$wearRatio[CleanedBirdData$PrimaryWear == "0"] <- 0
-    *	CleanedBirdData$wearRatio[CleanedBirdData$PrimaryWear == "1"] <- 1
-    *	CleanedBirdData$wearRatio[CleanedBirdData$PrimaryWear == "2"] <- 1
-    *	CleanedBirdData$wearRatio[CleanedBirdData$PrimaryWear == "3"] <- 2
-    *	CleanedBirdData$wearRatio[CleanedBirdData$PrimaryWear == "4"] <- 2
-    *	CleanedBirdData$wearRatio[CleanedBirdData$PrimaryWear == "5"] <- 2
+    *	CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "0"] <- 0
+    *	CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "1"] <- 1
+    *	CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "2"] <- 1
+    *	CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "3"] <- 2
+    *	CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "4"] <- 2
+    *	CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "5"] <- 2
 18.	Remove replace SOSP weight outliers with NA
     *	CleanedBirdData$cleanWeight[CleanedBirdData$Weight > 40 & CleanedBirdData$SpeciesCode == "SOSP"] <- NA
 19.	Create wingToWeightRatio Column
@@ -114,6 +114,6 @@ This is a complete Bird Banding Data at CCFS over the past 20 years.The dataset 
 20.	Left join BandingData and Habitat on TrapSite
     *	fullData <- merge(x = CleanedBirdData, y = habitat, by = "TrapSite", all.x = TRUE)
 21.	Remove unnecessary columns from the Habitat file
-    *	FullDataFilter <- subset(fullData, select=c("RowID.x","SpeciesCode", "BandNumber","CaptureDate","FirstCaptureDate","LastCaptureDate", "CaptureType","Age", "Sex", "TrapSite", "Fat", "BroodPatch", "CloacalProtuberance", "WingMolt", "PrimaryWear", "WingLength", "Weight", "year", "month", "sosp", "coye", "ageRatio", "sexRatio", "fatRatio", "broodRatio", "cloacalRatio", "moltRatio", "wearRatio", "cleanWeight", "wingToWeightRatio", "Habitat"))
+    *	FullDataFilter <- subset(fullData, select=c("RowID.x","SpeciesCode", "BandNumber","CaptureDate","FirstCaptureDate","LastCaptureDate", "CaptureType","Age", "Sex", "TrapSite", "Fat", "BroodPatch", "CloacalProtuberance", "WingMolt", "PrimaryWear", "WingLength", "Weight", "year", "month", "sosp", "coye", "ageRecode", "sexRecode", "fatRecode", "broodRecode", "cloacalRecode", "moltRecode", "wearRecode", "cleanWeight", "wingToWeightRatio", "Habitat"))
 22.	(Optional) If desired, remove all observations with at least one null value 
     *	FullDataRemoveNA <- FullDataFilter[complete.cases(FullDataFilter), ]
