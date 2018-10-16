@@ -7,7 +7,7 @@ The Data set consists of Bird Banding Data at Coyote Creek Field Station (CCFS) 
 * First Capture Date
 * Last Capture Date
 * Capture Type
-* Species 
+* Species Code 
 * Age
 * Sex
 * Trapsite
@@ -32,3 +32,15 @@ Note: All this information has been fully extracted from the "Data Sharing Agree
 ## Description of the Meta Data
 
 This is a complete Bird Banding Data at CCFS over the past 20 years.The dataset contains various details collected when a bird is trapped in one of the trap sites. Meta Data about various fields is as follows:
+
+* **Band Number** is the a unique number given to each bird when they are first captured. It helps to identify each bird uniquely.<br/>
+* **Capture Date** is the date on which the bird was captured **First Captured Date** and **Last Captured Date** gives the first and last encounter date for the individual bird. **Capture Type** enables us to know if it is a newly captured bird or a returning bird. <br/>
+* **Species Code** is a unique code given to each species. (We are planning to replace this field with species name to avoid any confusion) <br/>
+* **Trap site** gives us the details about the site in which the bird was captured. 
+* **Age**, **Sex**, **Fat**, **Weight** gives us the details of age, sex, fat stored in the furcular hollow of the birds body and Mass of the bird in grams respectively.<br/>
+* **BroodPatch** and **CloacalProtuberance** are the female and male breeding characteristics respectively. <br/>
+* **WingMolt** identifies molting feathers in the wing and tail of the bird.<br/>
+* **PrimaryWear** is the amount of wear in the wing feather tips.<br/>
+* **WingLength** is the length of the wing of the bird when captured in millimeters.
+
+
