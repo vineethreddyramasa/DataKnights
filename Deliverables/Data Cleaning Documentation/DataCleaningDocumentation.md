@@ -91,11 +91,11 @@ This is a complete Bird Banding Data at CCFS over the past 20 years.The dataset 
 14.	Create broodRecode column with recoded values
     *	CleanedBirdData$broodRecode[CleanedBirdData$BroodPatch == "0"] <- 0
     *	CleanedBirdData$broodRecode[is.na(CleanedBirdData$broodRatio)] <- 1
-    *	FullDataFilter$broodRecode[FullDataFilter$BroodPatch == "-"] <- NA
+    *	CleanedBirdData$broodRecode[FullDataFilter$BroodPatch == "-"] <- NA
 15.	Create cloacalRecode with recoded values
     *	CleanedBirdData$cloacalRecode[CleanedBirdData$CloacalProtuberance == "0"] <- 0
     *	CleanedBirdData$cloacalRecode[is.na(CleanedBirdData$cloacalRatio)] <- 1
-    *	FullDataFilter$cloacalRecode[FullDataFilter$CloacalProtuberance == "-"] <- NA
+    *	CleanedBirdData$cloacalRecode[FullDataFilter$CloacalProtuberance == "-"] <- NA
 16.	Create moltRecode with recoded values
     *	CleanedBirdData$moltRecode[CleanedBirdData$WingMolt == "0"] <- 0
     *	CleanedBirdData$moltRecode[CleanedBirdData$WingMolt == "S"] <- 1
