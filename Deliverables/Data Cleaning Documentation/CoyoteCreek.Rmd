@@ -67,7 +67,7 @@ Major issues include:
 
 * Both 1999 and 2002 have missing records in the beginning of each year.
 * The coded values are too granular, which causes small n-sizes and uneven categories.
-* R natively reads the “-“ character instead of classifying as NA.
+* R natively reads the "-" character instead of classifying as NA.
 * Several records from the weight column appear to be data entry errors with many standard deviations above sample norms.
 * Many of the bird attributes have missing data in the earlier years.
 
@@ -77,7 +77,7 @@ Both 1999 and 2002 were removed, because our analysis will rely heavily on seaso
 ## R Syntax with Step-by-Step Description
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE} 
 knitr::opts_chunk$set(cache=TRUE)
-knitr::opts_knit$set(root.dir = "C:/Users/ramas/Documents/ISQA 8086/Week 8") 
+knitr::opts_knit$set(root.dir = "~/Projects/CoyoteCreek/Data/CoyotoeCreek/") 
 ```
 
 1.	Remove meta tab and transform Excel files into .csv files (Completed outside of R)
@@ -85,72 +85,72 @@ knitr::opts_knit$set(root.dir = "C:/Users/ramas/Documents/ISQA 8086/Week 8")
     *	Data BandingRecords 1996-2016.xslx changes to BandingRecords
 
 2.	Read two data files
-```{}
-habitat <- read.csv("C:/Users/ramas/Documents/ISQA 8086/Coyote Creek/Data and Metadata/habitat.csv")
-BandingRecords <- read.csv("C:/Users/ramas/Documents/ISQA 8086/Coyote Creek/Data and Metadata/BandingRecords.csv")
+```{r loaddata}
+habitat <- read.csv("~/Projects/CoyoteCreek/Data/habitat.csv")
+BandingRecords <- read.csv("~/Projects/CoyoteCreek/Data/BandingRecords.csv")
 ```
 
 3.	Remove unneeded columns
-```{}
+```{r remove columns}
 FilterVariables <- subset(BandingRecords, select=c("RowID","SpeciesCode", "BandNumber","CaptureDate","FirstCaptureDate","LastCaptureDate", "CaptureType","Age", "Sex", "TrapSite", "Fat", "BroodPatch", "CloacalProtuberance", "WingMolt", "PrimaryWear", "WingLength", "Weight"))
 ```
 
 4.	Split date column
-```{}
+```{r split date}
 dateBlock <- unlist(strsplit(as.character(FilterVariables$CaptureDate),"/"))
 ```
 
 5.	Create year column
-```{}
+```{r create year}
     yearBlock <- dateBlock[seq(3,length(dateBlock),3)]
     yearBlockClean <- substr(yearBlock,1,2)
     FilterVariables$year <- yearBlockClean
 ```
 
 6.	Create month column
-```{}
+```{r create month}
     monthBlock <- dateBlock[seq(1,length(dateBlock),3)]
     FilterVariables$month <- monthBlock
 ```
 
 7.	Filter out years 1999 and 2002 due to incomplete data
-```{}
+```{r filter}
     FilterData <- FilterVariables[FilterVariables$year != "99",]
     FilterData <- FilterData[FilterData$year != "02",]
 ```
 
 8.	Create new data frame for recoding
-```{}
+```{r new data frame}
     CleanedBirdData <- FilterData
 ```
 
 9.	Create sosp column
-```{}
+```{r sosp column}
     CleanedBirdData$sosp[CleanedBirdData$SpeciesCode == "SOSP"] <- 1
     CleanedBirdData$sosp[is.na(CleanedBirdData$sosp)] <- 0
 ```
 
 10.	Create coye column
-```{}
+```{r coye}
     CleanedBirdData$coye[CleanedBirdData$SpeciesCode == "COYE"] <- 1
     CleanedBirdData$coye[is.na(CleanedBirdData$coye)] <- 0
 ```
 
 11.	Create ageRecode column with recoded values
-```{}
+```{r ageRecode}
     CleanedBirdData$ageRecode[CleanedBirdData$Age == 2] <- 0
     CleanedBirdData$ageRecode[CleanedBirdData$Age == 1] <- 1
     CleanedBirdData$ageRecode[CleanedBirdData$Age > 4] <- 1
 ```
 
 12.	Create sexRecode column with recoded values
-```{}
+```{r sexRecode}
     CleanedBirdData$sexRecode[CleanedBirdData$Sex == "M"] <- 1
     CleanedBirdData$sexRecode[CleanedBirdData$Sex == "F"] <- 0
 ```
 
 13.	Create fatRecode column with recoded values
-```{}
+```{r fatRecode}
     CleanedBirdData$fatRecode[CleanedBirdData$Fat == "0"] <- 0
     CleanedBirdData$fatRecode[CleanedBirdData$Fat == "1"] <- 1
     CleanedBirdData$fatRecode[CleanedBirdData$Fat == "2"] <- 1
@@ -162,28 +162,28 @@ dateBlock <- unlist(strsplit(as.character(FilterVariables$CaptureDate),"/"))
 ```
 
 14.	Create broodRecode column with recoded values
-```{}
+```{r broodRecode}
     CleanedBirdData$broodRecode[CleanedBirdData$BroodPatch == "0"] <- 0
     CleanedBirdData$broodRecode[is.na(CleanedBirdData$broodRecode)] <- 1
     CleanedBirdData$broodRecode[CleanedBirdData$BroodPatch == "-"] <- NA
 ```
 
 15.	Create cloacalRecode with recoded values
-```{}
+```{r cloacalRecode}
     CleanedBirdData$cloacalRecode[CleanedBirdData$CloacalProtuberance == "0"] <- 0
     CleanedBirdData$cloacalRecode[is.na(CleanedBirdData$cloacalRecode)] <- 1
     CleanedBirdData$cloacalRecode[CleanedBirdData$CloacalProtuberance == "-"] <- NA
 ```
 
 16.	Create moltRecode with recoded values
-```{}
+```{r moltRecode}
     CleanedBirdData$moltRecode[CleanedBirdData$WingMolt == "0"] <- 0
     CleanedBirdData$moltRecode[CleanedBirdData$WingMolt == "S"] <- 1
     CleanedBirdData$moltRecode[CleanedBirdData$WingMolt == "A"] <- 1
 ```
 
 17.	Create wearRecode with recoded values
-```{}
+```{r wearRecode}
     CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "0"] <- 0
     CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "1"] <- 1
     CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "2"] <- 1
@@ -193,27 +193,27 @@ dateBlock <- unlist(strsplit(as.character(FilterVariables$CaptureDate),"/"))
 ```
 
 18.	Remove replace SOSP weight outliers with NA
-```{}
+```{r replaceSOSP}
     CleanedBirdData$cleanWeight[CleanedBirdData$Weight > 40 & CleanedBirdData$SpeciesCode == "SOSP"] <- NA
 ```
 
 19.	Create wingToWeightRatio Column
-```{}
+```{r wtow}
     CleanedBirdData$wingToWeightRatio <- CleanedBirdData$WingLength / CleanedBirdData$cleanWeight
 ```
 
 20.	Left join BandingData and Habitat on TrapSite
-```{}
+```{r banding}
     fullData <- merge(x = CleanedBirdData, y = habitat, by = "TrapSite", all.x = TRUE)
 ```
 
 21.	Remove unnecessary columns from the Habitat file
-```{}
+```{r}
     FullDataFilter <- subset(fullData, select=c("RowID.x","SpeciesCode", "BandNumber","CaptureDate","FirstCaptureDate","LastCaptureDate", "CaptureType","Age", "Sex", "TrapSite", "Fat", "BroodPatch", "CloacalProtuberance", "WingMolt", "PrimaryWear", "WingLength", "Weight", "year", "month", "sosp", "coye", "ageRecode", "sexRecode", "fatRecode", "broodRecode", "cloacalRecode", "moltRecode", "wearRecode", "cleanWeight", "wingToWeightRatio", "Habitat"))
 ```
 
 22.	(Optional) If desired, remove all observations with at least one null value 
-```{}
+```{r}
     FullDataRemoveNA <- FullDataFilter[complete.cases(FullDataFilter), ]
 ```
 
@@ -221,8 +221,8 @@ dateBlock <- unlist(strsplit(as.character(FilterVariables$CaptureDate),"/"))
 
 We made substantial contributions to this dataset by addressing several data quality issues and by preparing the data to be ready for future statistical and visualization work. We made important decisions throughout this process to ensure data accuracy, which our future analysis and visualization work will rely on. We agree to be held responsible for the accuracy of our work.
 
-Vineeth Reddy and David Krupp met to discuss the data issues that needed to be addressed, and how to organize the data to better support our project’s research questions. Following additional study, Vineeth authored several sections regarding the data source details and metadata information. David tested and documented numerous lines of R syntax to help improve several data quality issues and to prepare the data for future analytical work. Aishwarya updated some of the issues and proofread the final deliverable.
+Vineeth Reddy and David Krupp met to discuss the data issues that needed to be addressed, and how to organize the data to better support our project's research questions. Following additional study, Vineeth authored several sections regarding the data source details and metadata information. David tested and documented numerous lines of R syntax to help improve several data quality issues and to prepare the data for future analytical work. Aishwarya proofread the final deliverable.
 
 ## Proofreader
 
-* Aishwarya J Reddy
+* Aishwarya Reddy
