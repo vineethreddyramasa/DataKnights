@@ -6,11 +6,7 @@ output:
   html_document:
     theme: cosmo
     toc: yes
-  github_document:
-    toc: yes
-  pdf_document:
-    toc: yes
-  word_document: default
+  
 ---
 * * *
 # Data Cleaning Documentation
