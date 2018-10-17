@@ -44,6 +44,13 @@ This is a complete Bird Banding Data at CCFS over the past 20 years.The dataset 
 * **WingLength** is the length of the wing of the bird when captured in millimeters.
 
 ## Issues Encountered within the Data
+
+From our Bird Banding data, we are using the "Data Banding Records" sheet for our data analysis. This data sheet has some missing values that we have eliminated in our data cleaning process. The data sheet has data from 1996-2016 and the data from 1996-2002 has majority of the missing values as well as less data compared to the data from 2002-2016. So, for our analysis we will consider the data from 2002-2016.
+
+According to our client, they are more interested in two specific species. Since the variety of species in the client's data is extremely vast, for our analysis we will use the two species mentioned by our client and if possible we will add a few more species later. The two species mentioned by our client are **Song Sparrow** and **Common Yellowthroat**. So, the data for other species will not be considered during our analysis. We also removed some columns that we do not need for our analysis and we will replace the shortforms or codes with their original names using the information from the given metadata sheets.  
+
+Major issues include:
+
 * Both 1999 and 2002 have missing records in the beginning of each year.
 * The coded values are too granular, which causes small n-sizes and uneven categories.
 * R natively reads the “-“ character instead of classifying as NA.
