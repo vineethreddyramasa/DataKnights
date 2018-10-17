@@ -43,7 +43,17 @@ This is a complete Bird Banding Data at CCFS over the past 20 years.The dataset 
 * **PrimaryWear** is the amount of wear in the wing feather tips.<br/>
 * **WingLength** is the length of the wing of the bird when captured in millimeters.
 
-## R syntax with step-by-step description
+## Issues Encountered within the Data
+* 1999 and 2002 have missing records in the beginning of these years.
+* The coded values are too granular, which causes small n-sizes and uneven categories.
+* R natively reads the “-“ character instead of classifying as NA.
+* Several records from the weight column appear to be data entry errors with many standard deviations above sample norms.
+* Many of the bird attributes have missing data in the earlier years.
+
+## Data Remediation
+Both 1999 and 2002 were removed, because our analysis will rely heavily on seasonal trends, which would be impacted by the months of missing data in these years. Attributes were recoded to either two or three categories, which helps sample sizes for trend analysis and future visual encoding decisions with fewer color representations. Weight observations that appeared to be data entry errors were replaced with NA. NA values were reentered into the data where the dash character was found. These data records were not removed, because the main frequency metrics and trends were not impacted by this issue. 
+
+## R Syntax with Step-by-Step Description
 1.	Remove meta tab and transform Excel files into .csv files (Completed outside of R)
     *	Metadata Trap.xlsx changes to habitat.csv
     *	Data BandingRecords 1996-2016.xslx changes to BandingRecords
