@@ -1,0 +1,133 @@
+---
+title: "CoyoteCreek"
+output: html_document
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/',
+                      echo=FALSE, warning=FALSE, message=FALSE)
+```
+
+## R Syntax with Step-by-Step Description
+
+1.	Removed meta tab and transform Excel files into .csv files (Completed outside of R)
+    *	Metadata Trap.xlsx changes to habitat.csv
+    *	Data BandingRecords 1996-2016.xslx changes to BandingRecords
+2.	Read two data files
+```{}
+habitat <- read.csv("~/Projects/CoyoteCreek/Data/habitat.csv")
+BandingRecords <- read.csv("~/Projects/CoyoteCreek/Data/BandingRecords.csv")
+```
+3.	Remove unneeded columns
+```{}
+FilterVariables <- subset(BandingRecords, select=c("RowID","SpeciesCode", "BandNumber","CaptureDate","FirstCaptureDate","LastCaptureDate", "CaptureType","Age", "Sex", "TrapSite", "Fat", "BroodPatch", "CloacalProtuberance", "WingMolt", "PrimaryWear", "WingLength", "Weight"))
+```
+4.	Split date column
+```{}
+dateBlock <- unlist(strsplit(as.character(FilterVariables$CaptureDate),"/"))
+```
+5.	Create year column
+```{}
+yearBlock <- dateBlock[seq(3,length(dateBlock),3)]
+yearBlockClean <- substr(yearBlock,1,2)
+FilterVariables$year <- yearBlockClean
+```
+6.	Create month column
+```{}
+monthBlock <- dateBlock[seq(1,length(dateBlock),3)]
+FilterVariables$month <- monthBlock
+```
+7.	Filter out years 1999 and 2002 due to incomplete data
+```{}
+FilterData <- FilterVariables[FilterVariables$year != "99",]
+FilterData <- FilterData[FilterData$year != "02",]
+```
+8.	Create new data frame for recoding
+```{}
+CleanedBirdData <- FilterData
+```
+9.	Create sosp column
+```{}
+CleanedBirdData$sosp[CleanedBirdData$SpeciesCode == "SOSP"] <- 1
+CleanedBirdData$sosp[is.na(CleanedBirdData$sosp)] <- 0
+```
+10.	Create coye column
+```{}
+CleanedBirdData$coye[CleanedBirdData$SpeciesCode == "COYE"] <- 1
+CleanedBirdData$coye[is.na(CleanedBirdData$coye)] <- 0
+```
+11.	Create ageRecode column with recoded values
+```{}
+CleanedBirdData$ageRecode[CleanedBirdData$Age == 2] <- 0
+CleanedBirdData$ageRecode[CleanedBirdData$Age == 1] <- 1
+CleanedBirdData$ageRecode[CleanedBirdData$Age > 4] <- 1
+```
+12.	Create sexRecode column with recoded values
+```{}
+CleanedBirdData$sexRecode[CleanedBirdData$Sex == "M"] <- 1
+CleanedBirdData$sexRecode[CleanedBirdData$Sex == "F"] <- 0
+```
+13.	Create fatRecode column with recoded values
+```{}
+CleanedBirdData$fatRecode[CleanedBirdData$Fat == "0"] <- 0
+CleanedBirdData$fatRecode[CleanedBirdData$Fat == "1"] <- 1
+CleanedBirdData$fatRecode[CleanedBirdData$Fat == "2"] <- 1
+CleanedBirdData$fatRecode[CleanedBirdData$Fat == "3"] <- 2
+CleanedBirdData$fatRecode[CleanedBirdData$Fat == "4"] <- 2
+CleanedBirdData$fatRecode[CleanedBirdData$Fat == "5"] <- 2
+CleanedBirdData$fatRecode[CleanedBirdData$Fat == "6"] <- 2
+CleanedBirdData$fatRecode[CleanedBirdData$Fat == "7"] <- 2
+```
+14.	Create broodRecode column with recoded values
+```{}
+CleanedBirdData$broodRecode[CleanedBirdData$BroodPatch == "0"] <- 0
+CleanedBirdData$broodRecode[is.na(CleanedBirdData$broodRatio)] <- 1
+CleanedBirdData$broodRecode[FullDataFilter$BroodPatch == "-"] <- NA
+```
+15.	Create cloacalRecode with recoded values
+```{}
+CleanedBirdData$cloacalRecode[CleanedBirdData$CloacalProtuberance == "0"] <- 0
+CleanedBirdData$cloacalRecode[is.na(CleanedBirdData$cloacalRatio)] <- 1
+CleanedBirdData$cloacalRecode[FullDataFilter$CloacalProtuberance == "-"] <- NA
+```
+16.	Create moltRecode with recoded values
+```{}
+CleanedBirdData$moltRecode[CleanedBirdData$WingMolt == "0"] <- 0
+CleanedBirdData$moltRecode[CleanedBirdData$WingMolt == "S"] <- 1
+CleanedBirdData$moltRecode[CleanedBirdData$WingMolt == "A"] <- 1
+```
+17.	Create wearRecode with recoded values
+```{}
+CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "0"] <- 0
+CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "1"] <- 1
+CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "2"] <- 1
+CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "3"] <- 2
+CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "4"] <- 2
+CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "5"] <- 2
+```
+18.	Remove replace SOSP weight outliers with NA
+```{}
+CleanedBirdData$cleanWeight[CleanedBirdData$Weight > 40 & CleanedBirdData$SpeciesCode == "SOSP"] <- NA
+```
+19.	Create wingToWeightRatio Column
+```{}
+CleanedBirdData$wingToWeightRatio <- CleanedBirdData$WingLength / CleanedBirdData$cleanWeight
+```
+20.	Left join BandingData and Habitat on TrapSite
+```{}
+fullData <- merge(x = CleanedBirdData, y = habitat, by = "TrapSite", all.x = TRUE)
+```
+21.	Remove unnecessary columns from the Habitat file
+```{}
+FullDataFilter <- subset(fullData, select=c("RowID.x","SpeciesCode", "BandNumber","CaptureDate","FirstCaptureDate","LastCaptureDate", "CaptureType","Age", "Sex", "TrapSite", "Fat", "BroodPatch", "CloacalProtuberance", "WingMolt", "PrimaryWear", "WingLength", "Weight", "year", "month", "sosp", "coye", "ageRecode", "sexRecode", "fatRecode", "broodRecode", "cloacalRecode", "moltRecode", "wearRecode", "cleanWeight", "wingToWeightRatio", "Habitat"))
+```
+22.	(Optional) If desired, remove all observations with at least one null value
+```{}
+FullDataRemoveNA <- FullDataFilter[complete.cases(FullDataFilter), ]
+```    
+
+## Contributorship Statement
+
+We made substantial contributions to this dataset by addressing several data quality issues and by preparing the data to be ready for future statistical and visualization work. We made important decisions throughout this process to ensure data accuracy, which our future analysis and visualization work will rely on. We agree to be held responsible for the accuracy of our work.
+
+Vineeth Reddy and David Krupp met to discuss the data issues that needed to be addressed, and how to organize the data to better support our project’s research questions. Following additional study, Vineeth authored several sections regarding the data source details and metadata information. David tested and documented numerous lines of R syntax to help improve several data quality issues and to prepare the data for future analytical work. Aishwarya proofread the final deliverable.
