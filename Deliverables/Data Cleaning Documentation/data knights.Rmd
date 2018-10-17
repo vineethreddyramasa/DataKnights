@@ -77,6 +77,7 @@ Both 1999 and 2002 were removed, because our analysis will rely heavily on seaso
 1.	Remove meta tab and transform Excel files into .csv files (Completed outside of R)
     *	Metadata Trap.xlsx changes to habitat.csv
     *	Data BandingRecords 1996-2016.xslx changes to BandingRecords
+
 2.	Read two data files
 ```{}
 habitat <- read.csv("C:/Users/ramas/Documents/ISQA 8086/Coyote Creek/Data and Metadata/habitat.csv")
