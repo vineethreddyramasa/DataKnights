@@ -20,7 +20,7 @@ Data Cleaning Documentation
 Description of the Data Source
 ------------------------------
 
-The Data set consists of Bird Banding Data at Coyote Creek Field Station (CCFS) over the span of 20 years from 1996 to 2016. It consists of information such as Banding Number which is a unique number given to each bird, the different capture dates of the birds and various demographic details about the birds captured at CCFS. There are total 78642 records collected and each record contains 25 columns. There are a total of 1154 species of Birds in the Data set, we are planning to consider the data of 3 species which are of interest to the client. Some of the important columns which we are considering for our analysis are as follows:
+The Data set consists of Bird Banding Data at Coyote Creek Field Station (CCFS) over the span of 20 years from 1996 to 2016. It consists of information such as Banding Number which is a unique number given to each bird, the different capture dates of the birds and various demographic details about the birds captured at CCFS. There are total 78642 records collected and each record contains 25 columns. There are a total of 1154 species of Birds in the Data set, we are planning to consider the data of 2 species which are of interest to the client. Some of the important columns which we are considering for our analysis are as follows:
 
 -   Band Number
 -   Capture Date
@@ -39,7 +39,7 @@ The Data set consists of Bird Banding Data at Coyote Creek Field Station (CCFS) 
 -   WingLength
 -   Weight
 
-We have access to supporting Meta Data Files files which help us understanding certain Codes within the main Data set. We also have a Data set indicating the Trap hours i.e. the operating hours of the trap sites over the past 20 years. We are planning to consider the data from the year 2002 as there has been a significant change in data collection pattern from that year.
+We have access to supporting Meta Data Files files which help us understanding certain Codes within the main Data set. We also have a Data set indicating the Trap hours i.e. the operating hours of the trap sites over the past 20 years. 
 
 Intellectual Policy Constraints
 -------------------------------
@@ -68,7 +68,7 @@ This is a complete Bird Banding Data at CCFS over the past 20 years.The dataset 
 Issues Encountered within the Data
 ----------------------------------
 
-From our Bird Banding data, we are using the "Data Banding Records" sheet for our data analysis. This data sheet has some missing values that we have eliminated in our data cleaning process. The data sheet has data from 1996-2016 and the data from 1996-2002 has majority of the missing values as well as less data compared to the data from 2002-2016. So, for our analysis we will consider the data from 2002-2016.
+From our Bird Banding data, we are using the "Data Banding Records" sheet for our data analysis. This data sheet has some missing values that we have eliminated in our data cleaning process. The data sheet has data from 1996-2016 and the data from 1999 & 2002 has majority of the missing values as well as less data compared to the data from other years. So, for our analysis we will not be considering the data from the years 1999 and 2002.
 
 According to our client, they are more interested in two specific species. Since the variety of species in the client's data is extremely vast, for our analysis we will use the two species mentioned by our client and if possible we will add a few more species later. The two species mentioned by our client are **Song Sparrow** and **Common Yellowthroat**. So, the data for other species will not be considered during our analysis. We also removed some columns that we do not need for our analysis and we will replace the shortforms or codes with their original names using the information from the given metadata sheets.
 
