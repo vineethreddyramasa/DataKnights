@@ -95,7 +95,7 @@ R Syntax with Step-by-Step Description
 2.  Read two data files
 
         habitat <- read.csv("C:/Users/ramas/Documents/ISQA 8086/Coyote Creek/Data and Metadata/habitat.csv")
-        BandingRecords <- read.csv("C:/Users/ramas/Documents/ISQA 8086/Coyote Creek/Data and Metadata/BandingRecords")
+        BandingRecords <- read.csv("C:/Users/ramas/Documents/ISQA 8086/Coyote Creek/Data and Metadata/BandingRecords.csv")
 
 3.  Remove unneeded columns
 
