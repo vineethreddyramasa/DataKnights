@@ -216,7 +216,7 @@ $(document).ready(function () {
 </ul></li>
 <li><p>Read two data files</p>
 <pre><code>habitat &lt;- read.csv(&quot;C:/Users/ramas/Documents/ISQA 8086/Coyote Creek/Data and Metadata/habitat.csv&quot;)
-BandingRecords &lt;- read.csv(&quot;C:/Users/ramas/Documents/ISQA 8086/Coyote Creek/Data and Metadata/BandingRecords&quot;)</code></pre></li>
+BandingRecords &lt;- read.csv(&quot;C:/Users/ramas/Documents/ISQA 8086/Coyote Creek/Data and Metadata/BandingRecords.csv&quot;)</code></pre></li>
 <li><p>Remove unneeded columns</p>
 <pre><code>FilterVariables &lt;- subset(BandingRecords, select=c(&quot;RowID&quot;,&quot;SpeciesCode&quot;, &quot;BandNumber&quot;,&quot;CaptureDate&quot;,&quot;FirstCaptureDate&quot;,&quot;LastCaptureDate&quot;, &quot;CaptureType&quot;,&quot;Age&quot;, &quot;Sex&quot;, &quot;TrapSite&quot;, &quot;Fat&quot;, &quot;BroodPatch&quot;, &quot;CloacalProtuberance&quot;, &quot;WingMolt&quot;, &quot;PrimaryWear&quot;, &quot;WingLength&quot;, &quot;Weight&quot;))</code></pre></li>
 <li><p>Split date column</p>
