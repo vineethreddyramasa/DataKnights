@@ -3,6 +3,8 @@ title: "Data Cleaning Document"
 author: "Data Knights"
 date: "October 16, 2018"
 output:
+  github_document:
+    toc: yes
   html_document:
     theme: cosmo
     toc: yes
