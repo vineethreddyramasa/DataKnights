@@ -11,6 +11,7 @@ October 16, 2018
     -   [Data Remediation](#data-remediation)
     -   [R Syntax with Step-by-Step Description](#r-syntax-with-step-by-step-description)
     -   [Contributorship Statement](#contributorship-statement)
+    -   [Proofreader](#proofreader)
 
 ------------------------------------------------------------------------
 
@@ -39,7 +40,7 @@ The Data set consists of Bird Banding Data at Coyote Creek Field Station (CCFS) 
 -   WingLength
 -   Weight
 
-We have access to supporting Meta Data Files files which help us understanding certain Codes within the main Data set. We also have a Data set indicating the Trap hours i.e. the operating hours of the trap sites over the past 20 years. 
+We have access to supporting Meta Data Files files which help us understanding certain Codes within the main Data set. We also have a Data set indicating the Trap hours i.e. the operating hours of the trap sites over the past 20 years.
 
 Intellectual Policy Constraints
 -------------------------------
@@ -76,14 +77,14 @@ Major issues include:
 
 -   Both 1999 and 2002 have missing records in the beginning of each year.
 -   The coded values are too granular, which causes small n-sizes and uneven categories.
--   R natively reads the "-" character instead of classifying as NA.
+-   R natively reads the “-“ character instead of classifying as NA.
 -   Several records from the weight column appear to be data entry errors with many standard deviations above sample norms.
 -   Many of the bird attributes have missing data in the earlier years.
 
 Data Remediation
 ----------------
 
-Both 1999 and 2002 were removed, because our analysis will rely heavily on seasonal trends, which would be impacted by the months of missing data in these years. Attributes were recoded to either two or three categories, which helps sample sizes for trend analysis and future visual encoding decisions with fewer color representations. Weight observations that appeared to be data entry errors were replaced with NA. NA values were reentered into the data where the dash character was found. These data records were not removed, because the main frequency metrics and trends were not impacted by this issue. \`\`\`
+Both 1999 and 2002 were removed, because our analysis will rely heavily on seasonal trends, which would be impacted by the months of missing data in these years. Attributes were recoded to either two or three categories, which helps sample sizes for trend analysis and future visual encoding decisions with fewer color representations. Weight observations that appeared to be data entry errors were replaced with NA. NA values were reentered into the data where the dash character was found. These data records were not removed, because the main frequency metrics and trends were not impacted by this issue.
 
 R Syntax with Step-by-Step Description
 --------------------------------------
@@ -135,7 +136,7 @@ R Syntax with Step-by-Step Description
         CleanedBirdData$coye[CleanedBirdData$SpeciesCode == "COYE"] <- 1
         CleanedBirdData$coye[is.na(CleanedBirdData$coye)] <- 0
 
-11. reate ageRecode column with recoded values
+11. Create ageRecode column with recoded values
 
         CleanedBirdData$ageRecode[CleanedBirdData$Age == 2] <- 0
         CleanedBirdData$ageRecode[CleanedBirdData$Age == 1] <- 1
@@ -161,13 +162,13 @@ R Syntax with Step-by-Step Description
 
         CleanedBirdData$broodRecode[CleanedBirdData$BroodPatch == "0"] <- 0
         CleanedBirdData$broodRecode[is.na(CleanedBirdData$broodRatio)] <- 1
-        CleanedBirdData$broodRecode[FullDataFilter$BroodPatch == "-"] <- NA
+        CleanedBirdData$broodRecode[CleanedBirdData$BroodPatch == "-"] <- NA
 
 15. Create cloacalRecode with recoded values
 
         CleanedBirdData$cloacalRecode[CleanedBirdData$CloacalProtuberance == "0"] <- 0
         CleanedBirdData$cloacalRecode[is.na(CleanedBirdData$cloacalRatio)] <- 1
-        CleanedBirdData$cloacalRecode[FullDataFilter$CloacalProtuberance == "-"] <- NA
+        CleanedBirdData$cloacalRecode[CleanedBirdData$CloacalProtuberance == "-"] <- NA
 
 16. Create moltRecode with recoded values
 
@@ -209,4 +210,9 @@ Contributorship Statement
 
 We made substantial contributions to this dataset by addressing several data quality issues and by preparing the data to be ready for future statistical and visualization work. We made important decisions throughout this process to ensure data accuracy, which our future analysis and visualization work will rely on. We agree to be held responsible for the accuracy of our work.
 
-Vineeth Reddy and David Krupp met to discuss the data issues that needed to be addressed, and how to organize the data to better support our project's research questions. Following additional study, Vineeth authored several sections regarding the data source details and metadata information. David tested and documented numerous lines of R syntax to help improve several data quality issues and to prepare the data for future analytical work. Aishwarya proofread the final deliverable.
+Vineeth Reddy and David Krupp met to discuss the data issues that needed to be addressed, and how to organize the data to better support our project’s research questions. Following additional study, Vineeth authored several sections regarding the data source details and metadata information. David tested and documented numerous lines of R syntax to help improve several data quality issues and to prepare the data for future analytical work. Aishwarya proofread the final deliverable.
+
+Proofreader
+-----------
+
+-   Aishwarya Reddy
