@@ -134,3 +134,11 @@ Both 1999 and 2002 were removed, because our analysis will rely heavily on seaso
     *	FullDataFilter <- subset(fullData, select=c("RowID.x","SpeciesCode", "BandNumber","CaptureDate","FirstCaptureDate","LastCaptureDate", "CaptureType","Age", "Sex", "TrapSite", "Fat", "BroodPatch", "CloacalProtuberance", "WingMolt", "PrimaryWear", "WingLength", "Weight", "year", "month", "sosp", "coye", "ageRecode", "sexRecode", "fatRecode", "broodRecode", "cloacalRecode", "moltRecode", "wearRecode", "cleanWeight", "wingToWeightRatio", "Habitat"))
 22.	(Optional) If desired, remove all observations with at least one null value 
     *	FullDataRemoveNA <- FullDataFilter[complete.cases(FullDataFilter), ]
+    
+## Contributors:
+
+* Vineeth Reddy 
+* Aishwarya Reddy
+* David Krupp
+
+## Proofreader: 
