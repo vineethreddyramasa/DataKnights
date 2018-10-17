@@ -161,14 +161,14 @@ dateBlock <- unlist(strsplit(as.character(FilterVariables$CaptureDate),"/"))
 ```{}
     CleanedBirdData$broodRecode[CleanedBirdData$BroodPatch == "0"] <- 0
     CleanedBirdData$broodRecode[is.na(CleanedBirdData$broodRatio)] <- 1
-    CleanedBirdData$broodRecode[FullDataFilter$BroodPatch == "-"] <- NA
+    CleanedBirdData$broodRecode[CleanedBirdData$BroodPatch == "-"] <- NA
 ```
 
 15.	Create cloacalRecode with recoded values
 ```{}
     CleanedBirdData$cloacalRecode[CleanedBirdData$CloacalProtuberance == "0"] <- 0
     CleanedBirdData$cloacalRecode[is.na(CleanedBirdData$cloacalRatio)] <- 1
-    CleanedBirdData$cloacalRecode[FullDataFilter$CloacalProtuberance == "-"] <- NA
+    CleanedBirdData$cloacalRecode[CleanedBirdData$CloacalProtuberance == "-"] <- NA
 ```
 
 16.	Create moltRecode with recoded values
