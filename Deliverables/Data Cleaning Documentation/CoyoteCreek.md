@@ -161,13 +161,13 @@ R Syntax with Step-by-Step Description
 14. Create broodRecode column with recoded values
 
         CleanedBirdData$broodRecode[CleanedBirdData$BroodPatch == "0"] <- 0
-        CleanedBirdData$broodRecode[is.na(CleanedBirdData$broodRatio)] <- 1
+        CleanedBirdData$broodRecode[is.na(CleanedBirdData$broodRecode)] <- 1
         CleanedBirdData$broodRecode[CleanedBirdData$BroodPatch == "-"] <- NA
 
 15. Create cloacalRecode with recoded values
 
         CleanedBirdData$cloacalRecode[CleanedBirdData$CloacalProtuberance == "0"] <- 0
-        CleanedBirdData$cloacalRecode[is.na(CleanedBirdData$cloacalRatio)] <- 1
+        CleanedBirdData$cloacalRecode[is.na(CleanedBirdData$cloacalRecode)] <- 1
         CleanedBirdData$cloacalRecode[CleanedBirdData$CloacalProtuberance == "-"] <- NA
 
 16. Create moltRecode with recoded values
