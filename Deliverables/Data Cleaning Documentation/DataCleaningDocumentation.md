@@ -141,8 +141,4 @@ We made substantial contributions to this dataset by addressing several data qua
 
 Vineeth Reddy and David Krupp met to discuss the data issues that needed to be addressed, and how to organize the data to better support our project’s research questions. Following additional study, Vineeth authored several sections regarding the data source details and metadata information. David tested and documented numerous lines of R syntax to help improve several data quality issues and to prepare the data for future analytical work. Aishwarya proofread the final deliverable.
 
-* Vineeth Reddy 
-* Aishwarya Reddy
-* David Krupp
-
 ## Proofreader: 
