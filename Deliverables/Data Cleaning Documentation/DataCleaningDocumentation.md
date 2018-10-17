@@ -60,4 +60,8 @@ Major issues include:
 ## Data Remediation
 Both 1999 and 2002 were removed, because our analysis will rely heavily on seasonal trends, which would be impacted by the months of missing data in these years. Attributes were recoded to either two or three categories, which helps sample sizes for trend analysis and future visual encoding decisions with fewer color representations. Weight observations that appeared to be data entry errors were replaced with NA. NA values were reentered into the data where the dash character was found. These data records were not removed, because the main frequency metrics and trends were not impacted by this issue. 
 
+## R Script with Step-by-Step Instructions
+* [R script with Rmd]( https://github.com/vineethreddyramasa/DataKnights/blob/master/Deliverables/Data%20Cleaning%20Documentation/CoyoteCreek.Rmd)
+* [R script with HTML]( https://github.com/vineethreddyramasa/DataKnights/blob/master/Deliverables/Data%20Cleaning%20Documentation/CoyoteCreek.html)
+
 ## Proofreader: 
