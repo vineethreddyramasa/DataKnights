@@ -81,7 +81,7 @@ Both 1999 and 2002 were removed, because our analysis will rely heavily on seaso
 2.	Read two data files
 ```{}
 habitat <- read.csv("C:/Users/ramas/Documents/ISQA 8086/Coyote Creek/Data and Metadata/habitat.csv")
-BandingRecords <- read.csv("C:/Users/ramas/Documents/ISQA 8086/Coyote Creek/Data and Metadata/BandingRecords")
+BandingRecords <- read.csv("C:/Users/ramas/Documents/ISQA 8086/Coyote Creek/Data and Metadata/BandingRecords.csv")
 ```
 
 3.	Remove unneeded columns
