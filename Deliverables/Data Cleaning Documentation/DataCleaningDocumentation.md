@@ -135,7 +135,11 @@ Both 1999 and 2002 were removed, because our analysis will rely heavily on seaso
 22.	(Optional) If desired, remove all observations with at least one null value 
     *	FullDataRemoveNA <- FullDataFilter[complete.cases(FullDataFilter), ]
     
-## Contributors:
+## Contributorship Statement
+
+We made substantial contributions to this dataset by addressing several data quality issues and by preparing the data to be ready for future statistical and visualization work. We made important decisions throughout this process to ensure data accuracy, which our future analysis and visualization work will rely on. We agree to be held responsible for the accuracy of our work.
+
+Vineeth Reddy and David Krupp met to discuss the data issues that needed to be addressed, and how to organize the data to better support our project’s research questions. Following additional study, Vineeth authored several sections regarding the data source details and metadata information. David tested and documented numerous lines of R syntax to help improve several data quality issues and to prepare the data for future analytical work. Aishwarya proofread the final deliverable.
 
 * Vineeth Reddy 
 * Aishwarya Reddy
