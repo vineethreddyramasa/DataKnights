@@ -44,7 +44,7 @@ This is a complete Bird Banding Data at CCFS over the past 20 years.The dataset 
 * **WingLength** is the length of the wing of the bird when captured in millimeters.
 
 ## Issues Encountered within the Data
-* 1999 and 2002 have missing records in the beginning of these years.
+* Both 1999 and 2002 have missing records in the beginning of each year.
 * The coded values are too granular, which causes small n-sizes and uneven categories.
 * R natively reads the “-“ character instead of classifying as NA.
 * Several records from the weight column appear to be data entry errors with many standard deviations above sample norms.
