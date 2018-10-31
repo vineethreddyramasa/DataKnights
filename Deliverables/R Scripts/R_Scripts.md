@@ -19,7 +19,7 @@ R Syntax with Description
     -   Weight outliers have been set to N/A
     -   Created a new column called "wingToWeightRatio" to perform some analyses
 
-2.  Read the data file. The file cleanData.csv is read and stored in a Dataframe called BandingData
+2.  Read the data file. The file cleanData.csv is read and stored in a Dataframe called BandingData.
 
     ``` r
     BandingData <- read.csv("cleanData.csv", header = TRUE, stringsAsFactors = FALSE)
@@ -128,7 +128,7 @@ R Syntax with Description
         ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
         ##   2.969   6.100   6.302   6.303   6.517  10.179
 
-6.  Count of each species of Bird sighted in different Habitats over the span of 20 years
+6.  Count of each species of Bird sighted in different Habitats over the span of 20 years.
 
     ``` r
     library(plyr)
@@ -189,7 +189,7 @@ R Syntax with Description
         ## 3   Mature Riparian  592
         ## 4  Overflow Channel  238
 
-7.  Count of each species of Bird sighted in different Trapsites over the span of 20 years
+7.  Count of each species of Bird sighted in different Trapsites over the span of 20 years.
 
     ``` r
     # Number of Birds sighted in different Trapsites
@@ -558,11 +558,11 @@ Contributorship Statement
 
 Our contributions made to this dataset include analysis on various aspects using R scripts. We made sure that the data was thoroughly cleaned before working on it further. We agree to be held responsible for our work with this dataset.
 
-Vineeth Reddy and Aishwarya Reddy met and discussed the research parts that could be analyzed using R scripts. As suggested by our clients, we worked on five species – Song Sparrow, Common Yellowthroat, Bewick’s Wren, Bushtit and Chestnut-backed Chickadee. We have performed analysis using R scripts for the following, a summary statistics for weight for all 5 species – per month of all years combined and also per year, a summary statisticcs for the wing to weight ratio for all 5 species – per month of all years combined and also per year, the mean of wing to weight ratio by month for each year for all 5 species, number of birds sighted – per month and in each year, number of male and female birds spotted every year, number of birds sighted based on their habitats and trap-sites, the correlation between wing length and weight was also observed for all 5 species. We have made various observations from all the results obtained by the above calculations and analysis. 
+Vineeth Reddy and Aishwarya Reddy met and discussed the research parts that could be analyzed using R scripts. As suggested by our clients, we worked on five species - Song Sparrow, Common Yellowthroat, Bewick's Wren, Bushtit and Chestnut-backed Chickadee. We have performed analysis using R scripts for the following, a summary statistics for weight for all 5 species - per month of all years combined and also per year, a summary statisticcs for the wing to weight ratio for all 5 species - per month of all years combined and also per year, the mean of wing to weight ratio by month for each year for all 5 species, number of birds sighted - per month and in each year, number of male and female birds spotted every year, number of birds sighted based on their habitats and trap-sites, the correlation between wing length and weight was also observed for all 5 species. We have made various observations from all the results obtained by the above calculations and analysis.
 
 All the calculations were done by Vineeth and Aishwarya. The final document was proofread by Aishwarya.
 
 Proofreader
 -----------
 
-Aishwarya J Reddy has proofread the document. 
+-   Aishwarya J Reddy has proofread the document.
