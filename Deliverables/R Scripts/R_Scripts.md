@@ -14,10 +14,10 @@ R Syntax with Description
 
 1.  The Dataset used for these Scripts was generated during the Data Cleaning process from the original Dataset belonging to Coyote Creek Field Station. Some of the cleaning steps done include:
     -   The name of the cleaned Dataset used is cleanData.csv
-    -   The Date Field was split into months, years during Data Cleaning for performing data analysis
+    -   The Date Field was split into months, years during Data Cleaning for performing data analysis.
     -   The Data from years 1999 and 2002 was deleted due to incomplete data.
-    -   Weight outliers have been set to N/A
-    -   Created a new column called "wingToWeightRatio" to perform some analyses
+    -   Weight outliers have been set to N/A.
+    -   Created a new column called "wingToWeightRatio" to perform some analyses.
 
 2.  Read the data file. The file cleanData.csv is read and stored in a Dataframe called BandingData.
 
@@ -25,7 +25,7 @@ R Syntax with Description
     BandingData <- read.csv("cleanData.csv", header = TRUE, stringsAsFactors = FALSE)
     ```
 
-3.  Creating Subset Dataframes for each of the 5 Species
+3.  Creating Subset Dataframes for each of the 5 Species.
 
     ``` r
     # subset for Common Yellowthroat
@@ -44,7 +44,7 @@ R Syntax with Description
     cbch <- subset(BandingData, SpeciesCode=="CBCH")
     ```
 
-4.  Summary Statistics for Weight of each species
+4.  Summary Statistics for Weight of each species.
 
     ``` r
     # summary statistics for weight for Common Yellowthroat
@@ -86,7 +86,7 @@ R Syntax with Description
         ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
         ##   5.600   9.000   9.400   9.404   9.800  19.200
 
-5.  Summary statistics for Wing to Weight Ratio for each species
+5.  Summary statistics for Wing to Weight Ratio for each species.
 
     ``` r
     # summary statistics for Wing to Weight Ratio for each Common Yellowthroat
@@ -202,7 +202,7 @@ R Syntax with Description
     # Output not displayed because its too lengthy
     ```
 
-8.  Number of Male and Female birds spotted every year
+8.  Number of Male and Female birds spotted every year.
 
     ``` r
     # Number of Male and Female birds spotted every year
@@ -215,7 +215,7 @@ R Syntax with Description
     # Output not displayed because its too lengthy
     ```
 
-9.  Number of birds sighted per month in each year
+9.  Number of birds sighted per month in each year.
 
     ``` r
     count_sosp = count(sosp, c('month','year')) # Song Sparrow
@@ -227,7 +227,7 @@ R Syntax with Description
     # Output not displayed because its too lengthy
     ```
 
-10. Number of birds sighted in each year
+10. Number of birds sighted in each year.
 
     ``` r
     count_coye_year = count(coye, c('year')) # Common Yellowthroat
@@ -261,7 +261,7 @@ R Syntax with Description
         ## 18   97  202
         ## 19   98  242
 
-11. Mean of weights by month for each year for Common Yellowthroat (Means for remaining species can be found in R script)
+11. Mean of weights by month for each year for Common Yellowthroat. (Means for remaining species can be found in R script)
 
     ``` r
     #mean of weights by month for each year for Common Yellowthroat
@@ -280,7 +280,7 @@ R Syntax with Description
     coye_mean <- coye_mean[with(coye_mean, order(mn,yr)), ]
     ```
 
-12. Mean of wing to weight ratio by month for each year for Common Yellowthroat (Means for remaining species can be found in R script)
+12. Mean of wing to weight ratio by month for each year for Common Yellowthroat. (Means for remaining species can be found in R script)
 
     ``` r
     #mean of wing to weight by month for each year for Common Yellowthroat
@@ -299,7 +299,7 @@ R Syntax with Description
     coye_wtow_mean <- coye_wtow_mean[with(coye_wtow_mean, order(mn,yr)), ]
     ```
 
-13. Summary statistics for weight per month (months of all years combined)
+13. Summary statistics for weight per month. (months of all years combined)
 
     ``` r
     detach(package:plyr)
@@ -349,7 +349,7 @@ R Syntax with Description
       summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
     ```
 
-14. Summary statistics for weight per year
+14. Summary statistics for weight per year.
 
     ``` r
     detach(package:plyr)
@@ -405,7 +405,7 @@ R Syntax with Description
       summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
     ```
 
-15. Summary statistics for Wing to Weight Ratio per month (months of all years combined)
+15. Summary statistics for Wing to Weight Ratio per month. (months of all years combined)
 
     ``` r
     detach(package:plyr)
@@ -454,7 +454,7 @@ R Syntax with Description
       summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
     ```
 
-16. Summary statistics for Wing to weight ratio per year
+16. Summary statistics for Wing to weight ratio per year.
 
     ``` r
     detach(package:plyr)
@@ -511,7 +511,7 @@ R Syntax with Description
       summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
     ```
 
-17. Correlation between Weight and Wing length for each species
+17. Correlation between Weight and Wing length for each species.
 
     ``` r
     #correlation between weight and wing length for Common Yellowthroat
