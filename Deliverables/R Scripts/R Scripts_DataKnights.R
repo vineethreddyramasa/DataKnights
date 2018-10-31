@@ -38,7 +38,9 @@ summary(bewr$wingToWeightRatio)
 summary(bush$wingToWeightRatio)
 summary(cbch$wingToWeightRatio)
 
+# Importing the Library plyr
 library(plyr)
+
 # Number of Birds sighted in different Habitats
 count(sosp,c('Habitat'))
 count(coye,c('Habitat'))
@@ -273,6 +275,7 @@ cbch_wtow_mean <- cbch_wtow_mean[with(cbch_wtow_mean, order(mn,yr)), ]
 
 ##############################################################################################################################
 
+#Detaching the library plyr and importing dplyr
 detach(package:plyr)
 library(dplyr)
 
