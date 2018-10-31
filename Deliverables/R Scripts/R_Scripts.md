@@ -556,7 +556,8 @@ R Syntax with Description
 Contributorship Statement
 -------------------------
 
-Our contributions made to this dataset include analysis on various aspects using R scripts. We made sure that the data was thoroughly cleaned before working on it further. We agree to be held responsible for our work with this dataset. 
+Our contributions made to this dataset include analysis on various aspects using R scripts. We made sure that the data was thoroughly cleaned before working on it further. We agree to be held responsible for our work with this dataset.
+
 Vineeth Reddy and Aishwarya Reddy met and discussed the research parts that could be analyzed using R scripts. As suggested by our clients, we worked on five species – Song Sparrow, Common Yellowthroat, Bewick’s Wren, Bushtit and Chestnut-backed Chickadee. We have performed analysis using R scripts for the following, a summary statistics for weight for all 5 species – per month of all years combined and also per year, a summary statics for the wing to weight ratio for all 5 species – per month of all years combined and also per year, the mean of wing to weight ratio by month for each year for all 5 species, number of birds sighted – per month and in each year, number of male and female birds spotted every year, number of birds sighted based on their habitats and trap-sites, the correlation between wing length and weight was also observed for all 5 species. 
 
 Proofreader
