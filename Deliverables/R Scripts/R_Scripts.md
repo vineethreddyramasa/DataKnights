@@ -565,4 +565,4 @@ All the calculations were done by Vineeth and Aishwarya. The final document was 
 Proofreader
 -----------
 
--   Aishwarya J Reddy has proofread the document.
+-   Aishwarya Reddy has proofread the document.
