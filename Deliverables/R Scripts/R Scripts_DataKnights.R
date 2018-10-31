@@ -23,7 +23,6 @@ bush <- subset(BandingData, SpeciesCode=="BUSH")
 # Creating subset for Chestnut-backed Chickadee species 
 cbch <- subset(BandingData, SpeciesCode=="CBCH")
 
-######################################################################
 
 # summary statistics for weight for each species
 summary(coye$cleanWeight)
@@ -32,8 +31,6 @@ summary(bewr$cleanWeight)
 summary(bush$cleanWeight)
 summary(cbch$cleanWeight)
 
-######################################################################
-
 # summary statistics for Wing to Weight Ratio for each species
 summary(coye$wingToWeightRatio)
 summary(sosp$wingToWeightRatio)
@@ -41,13 +38,7 @@ summary(bewr$wingToWeightRatio)
 summary(bush$wingToWeightRatio)
 summary(cbch$wingToWeightRatio)
 
-######################################################################
-
-# Importing the Library plyr
 library(plyr)
-
-######################################################################
-
 # Number of Birds sighted in different Habitats
 count(sosp,c('Habitat'))
 count(coye,c('Habitat'))
@@ -55,16 +46,12 @@ count(bewr,c('Habitat'))
 count(bush,c('Habitat'))
 count(cbch,c('Habitat'))
 
-######################################################################
-
 # Number of Birds sighted in different Trapsites
 count(sosp,c('TrapSite'))
 count(coye,c('TrapSite'))
 count(bewr,c('TrapSite'))
 count(bush,c('TrapSite'))
 count(cbch,c('TrapSite'))
-
-######################################################################
 
 # Number of Male and Female birds spotted every year
 count(sosp,c('year','sexRatio'))
@@ -113,7 +100,7 @@ count_cbch = count(cbch, c('month','year'))
 #Number of sightings of Chestnut-backed Chickadee per year
 count_cbch_year = count(cbch,  c('year'))
 
-###################################################################################################
+####################################################################################################################################################
 
 #mean of weights by month for each year for Common Yellowthroat
 coye_mean = data.frame()
@@ -284,9 +271,8 @@ for ( yr in unique(cbch$year) )
 
 cbch_wtow_mean <- cbch_wtow_mean[with(cbch_wtow_mean, order(mn,yr)), ]
 
-###############################################################################################################################################################################################################
+##############################################################################################################################
 
-#Detaching the library plyr and importing dplyr
 detach(package:plyr)
 library(dplyr)
 
@@ -342,7 +328,7 @@ cbch%>%
   group_by(year)%>% 
   summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
 
-#############################################################################################################################################################################################################
+#############################################################################################################################################################################################################3
 
 #summary statistics based on months for Common Yellowthroat for wingtoweight ratio
 coye%>%
@@ -369,7 +355,7 @@ cbch%>%
   group_by(month)%>% 
   summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
 
-#############################################################################################################################################################################################################
+#############################################################################################################################################################################################################3
 
 #summary statistics based on years for Common Yellowthroat for wingtoweight ratio
 coye%>%
@@ -396,7 +382,7 @@ cbch%>%
   group_by(year)%>% 
   summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
 
-#############################################################################################################################################################################################################
+#############################################################################################################################################################################################################3
 
 #correlation between weight and wing length for Common Yellowthroat
 coye_cor = cor(coye$cleanWeight, coye$WingLength)
@@ -413,6 +399,6 @@ bush_cor = cor(bush$cleanWeight, bush$WingLength)
 #correlation between weight and wing length for Chestnut-backed Chickadee
 cbch_cor = cor(cbch$cleanWeight, cbch$WingLength)
 
-#############################################################################################################################################################################################################
+#############################################################################################################################################################################################################3
 
 
