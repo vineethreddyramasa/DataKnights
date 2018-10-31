@@ -1,20 +1,26 @@
+# R Script for the Coyote Creek Data set
+# By Data Knights
+# October 31, 2018
+
+#Setting the Working Directory
 setwd("C:/Users/ramas/Documents/ISQA 8086/R Scripts")
 
+#Reading the csv file and loading it in a Data Frame
 BandingData <- read.csv("cleanData.csv", header = TRUE, stringsAsFactors = FALSE)
 
-# subset for Common Yellowthroat
+# Creating subset for Common Yellowthroat species
 coye <- subset(BandingData, SpeciesCode=="COYE")
 
-# subset for Song Sparrow
+# Creating subset for Song Sparrow species
 sosp <- subset(BandingData, SpeciesCode=="SOSP")
 
-# subset for Bewick's Wren 
+# Creating subset for Bewick's Wren species
 bewr <- subset(BandingData, SpeciesCode=="BEWR")
 
-# subset for  Bushtit 
+# Creating subset for  Bushtit species
 bush <- subset(BandingData, SpeciesCode=="BUSH")
 
-# subset for Chestnut-backed Chickadee 
+# Creating subset for Chestnut-backed Chickadee species 
 cbch <- subset(BandingData, SpeciesCode=="CBCH")
 
 
@@ -64,34 +70,34 @@ count_sosp_year = count(sosp, c('year'))
 
 #####################################################################
 
-#Number of sightings of Common yellow throat per month per year
+#Number of sightings of Common Yellowthroat per month per year
 count_coye = count(coye,c('month','year'))
 
-#Number of sightings of Common yellow throat per year
+#Number of sightings of Common Yellowthroat per year
 count_coye_year = count(coye,  c('year'))
 
 ######################################################################
 
-#Number of sightings of Song Sparrow per month per year
+#Number of sightings of Bewick's Wren per month per year
 count_bewr = count(bewr, c('month','year'))
 
-#Number of sightings of Song Sparrow per year
+#Number of sightings of Bewick's Wren per year
 count_bewr_year = count(bewr, c('year'))
 
 ######################################################################
 
-#Number of sightings of Song Sparrow per month per year
+#Number of sightings of Bushtit per month per year
 count_bush = count(bush, c('month','year'))
 
-#Number of sightings of Song Sparrow per year
+#Number of sightings of Bushtit per year
 count_bush_year = count(bush,  c('year'))
 
 ######################################################################
 
-#Number of sightings of Song Sparrow per month per year
+#Number of sightings of Chestnut-backed Chickadee per month per year
 count_cbch = count(cbch, c('month','year'))
 
-#Number of sightings of Song Sparrow per year
+#Number of sightings of Chestnut-backed Chickadee per year
 count_cbch_year = count(cbch,  c('year'))
 
 ####################################################################################################################################################
@@ -182,7 +188,7 @@ cbch_mean <- cbch_mean[with(cbch_mean, order(mn,yr)), ]
 
 ####################################################################################################
 
-#mean of wing to weight by month for each year for coye
+#mean of wing to weight by month for each year for Common Yellowthroat
 coye_wtow_mean = data.frame()
 
 for ( yr in unique(coye$year) )
@@ -270,108 +276,108 @@ cbch_wtow_mean <- cbch_wtow_mean[with(cbch_wtow_mean, order(mn,yr)), ]
 detach(package:plyr)
 library(dplyr)
 
-#summary statistics based on months for coye
+#summary statistics based on months for Common Yellowthroat
 coye%>%
   group_by(month)%>% 
   summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
 
-#summary statistics based on months for sosp
+#summary statistics based on months for Song Sparrow
 sosp%>%
   group_by(month)%>% 
   summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
 
-#summary statistics based on months for bewr
+#summary statistics based on months for Bewick's Wren
 bewr%>%
   group_by(month)%>% 
   summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
 
-#summary statistics based on months for bush
+#summary statistics based on months for Bushtit
 bush%>%
   group_by(month)%>% 
   summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
 
-#summary statistics based on months for cbch
+#summary statistics based on months for Chestnut-backed Chickadee
 cbch%>%
   group_by(month)%>% 
   summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
   
 ################################################################################################################################################################################################################
 
-#summary statistics based on years for coye
+#summary statistics based on years for Common Yellowthroat
 coye%>%
   group_by(year)%>% 
   summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
 
-#summary statistics based on years for sosp
+#summary statistics based on years for Song Sparrow
 sosp%>%
   group_by(year)%>% 
   summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
 
-#summary statistics based on years for bewr
+#summary statistics based on years for Bewick's Wren
 bewr%>%
   group_by(year)%>% 
   summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
 
-#summary statistics based on years for bush
+#summary statistics based on years for Bushtit
 bush%>%
   group_by(year)%>% 
   summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
 
-#summary statistics based on years for cbch
+#summary statistics based on years for Chestnut-backed Chickadee
 cbch%>%
   group_by(year)%>% 
   summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
 
 #############################################################################################################################################################################################################3
 
-#summary statistics based on months for coye for wingtoweight ratio
+#summary statistics based on months for Common Yellowthroat for wingtoweight ratio
 coye%>%
   group_by(month)%>% 
   summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
 
-#summary statistics based on months for sosp for wingtoweight ratio
+#summary statistics based on months for Song Sparrow for wingtoweight ratio
 sosp%>%
   group_by(month)%>% 
   summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
 
-#summary statistics based on months for bewr for wingtoweight ratio
+#summary statistics based on months for Bewick's Wren for wingtoweight ratio
 bewr%>%
   group_by(month)%>% 
   summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
 
-#summary statistics based on months for bush for wingtoweight ratio
+#summary statistics based on months for Bushtit for wingtoweight ratio
 bush%>%
   group_by(month)%>% 
   summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
 
-#summary statistics based on months for cbch for wingtoweight ratio
+#summary statistics based on months for Chestnut-backed Chickadee for wingtoweight ratio
 cbch%>%
   group_by(month)%>% 
   summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
 
 #############################################################################################################################################################################################################3
 
-#summary statistics based on years for coye for wingtoweight ratio
+#summary statistics based on years for Common Yellowthroat for wingtoweight ratio
 coye%>%
   group_by(year)%>% 
   summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
 
-#summary statistics based on years for sosp for wingtoweight ratio
+#summary statistics based on years for Song Sparrow for wingtoweight ratio
 sosp%>%
   group_by(year)%>% 
   summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
 
-#summary statistics based on years for bewr for wingtoweight ratio
+#summary statistics based on years for Bewick's Wren for wingtoweight ratio
 bewr%>%
   group_by(year)%>% 
   summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
 
-#summary statistics based on years for bush for wingtoweight ratio
+#summary statistics based on years for Bushtit for wingtoweight ratio
 bush%>%
   group_by(year)%>% 
   summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
 
-#summary statistics based on years for cbch for wingtoweight ratio
+#summary statistics based on years for Chestnut-backed Chickadee for wingtoweight ratio
 cbch%>%
   group_by(year)%>% 
   summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
