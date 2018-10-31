@@ -1,1 +1,2 @@
- The HTML File can be opened at this link: [rpubs.com/vineeth24595/r_scripts]
+ The HTML File can be opened at this link: https://rpubs.com/vineeth24595/r_scripts
+
