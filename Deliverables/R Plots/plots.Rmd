@@ -17,7 +17,7 @@ output:
 ## R Plots with Description
     ```{r setup, echo=FALSE, message=FALSE, warning=FALSE, results='hide'} 
     knitr::opts_chunk$set(cache=TRUE)
-    knitr::opts_knit$set(root.dir = "C:/Users/ramas/Documents/ISQA 8086/R Scripts") 
+    knitr::opts_knit$set(root.dir = "C:/Users/ramas/Documents/ISQA 8086/R Plots") 
     ```
 #### Reading the Data File
 * Read the data file. The file cleanData.csv is read and stored in a Dataframe called BandingData.
@@ -379,6 +379,7 @@ output:
 * Description here
 
     ```{r, echo=FALSE}
+    library(dplyr)
     #summary statistics based on years for Common Yellowthroat for wingtoweight ratio
     p=coye%>%
       group_by(year)%>% 
