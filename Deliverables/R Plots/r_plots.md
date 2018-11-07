@@ -63,7 +63,7 @@ R Plots with Description
 
 #### Number of Sightings of different species over the years
 
--   It can be noticed that the number of sightings of Song sparrows is significantly higher than that of other species but has dropped rapidly between 2010 and 2016 which might be a reason to be concerned. The sightings of Bewick's Wren is increasing slowly while the other threee species are fairly constant.
+-   It can be noticed that the number of sightings of Song sparrows is significantly higher than that of other species but has dropped rapidly between 2010 and 2016 which might be a reason to be concerned. The sightings of Bewick's Wren is increasing slowly while the other three species are fairly constant.
 
     ![](r_plots_files/figure-markdown_github/unnamed-chunk-8-1.png)
 
@@ -87,7 +87,7 @@ R Plots with Description
 
 #### Change in the average Wing to Weight Ratio of each species over the span of 20 years
 
--   The average wing to weight ration of all the species is constant over the past 20 years.
+-   The average wing to weight ratio of all the species is constant over the past 20 years.
 
     ![](r_plots_files/figure-markdown_github/unnamed-chunk-12-1.png)
 

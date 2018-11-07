@@ -169,7 +169,7 @@ output:
     ```
     
 #### Number of Sightings of different species over the years
-* It can be noticed that the number of sightings of Song sparrows is significantly higher than that of other species but has dropped rapidly between 2010 and 2016 which might be a reason to be concerned. The sightings of Bewick's Wren is increasing slowly while the other threee species are fairly constant.
+* It can be noticed that the number of sightings of Song sparrows is significantly higher than that of other species but has dropped rapidly between 2010 and 2016 which might be a reason to be concerned. The sightings of Bewick's Wren is increasing slowly while the other three species are fairly constant.
 
     ```{r, echo=FALSE}
     count_sosp_year = count(sosp, c('year'))
@@ -405,7 +405,7 @@ output:
     ```
     
 #### Change in the average Wing to Weight Ratio of each species over the span of 20 years
-* The average wing to weight ration of all the species is constant over the past 20 years.
+* The average wing to weight ratio of all the species is constant over the past 20 years.
 
     ```{r, echo=FALSE}
     library(dplyr)
