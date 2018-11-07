@@ -28,8 +28,8 @@ R Plots with Description
 -   Has the sex Ratio for birds changed significantly, and does it have a trend?
 -   Has the number of birds seen each year been stable or trending in a certain direction?
 -   Has been any change in the wing to weight ratio of the birds over past 20 years?
--   Finding the seasonal patterns in the weight changes in the birds
--   Finding the seasonal patterns in Wing to Weight Ratio changes in birds
+-   Finding the seasonal patterns in the weight changes in the birds.
+-   Finding the seasonal patterns in Wing to Weight Ratio changes in birds.
 
 #### Reading the Data File
 
