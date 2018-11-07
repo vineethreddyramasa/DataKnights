@@ -19,6 +19,15 @@ output:
     knitr::opts_chunk$set(cache=TRUE)
     knitr::opts_knit$set(root.dir = "C:/Users/ramas/Documents/ISQA 8086/R Plots") 
     ```
+#### Research Questions
+* How is Bird Banding Data Changing over time? (Changes in the number of sightings)
+* Are the breeding and molting seasons changing?
+* Has the sex Ratio for birds changed significantly, and does it have a trend?
+* Has the number of birds seen each year been stable or trending in a certain direction?
+* Has been any change in the wing to weight ratio of the birds over past 20 years?
+* Finding the seasonal patterns in the weight changes in the birds
+* Finding the seasonal patterns in Wing to Weight Ratio changes in birds
+    
 #### Reading the Data File
 * Read the data file. The file cleanData.csv is read and stored in a Dataframe called BandingData.
     ```{r}
@@ -80,7 +89,7 @@ output:
     ```
     
 #### Change in the Sex Ratio of Different species over the years
-* Description here 
+* **Song Sparrow**: We cannot quite comment on the Sex Ratio of Song Sparrows as there are a lot of NA values, which means the sex of the bird was not determined at the time of capture. However, we can see that population of male birds is higher that female birds for majority of the years.  
 
     ```{r, echo=FALSE}
     
@@ -96,6 +105,11 @@ output:
       theme(plot.title = element_text(hjust = 0.5)
             )
     ########################################################################################
+    ```
+
+* **Common Yellowthroat**: The number of Male birds is significantly higher than that of Female birds and is being constant over the years.
+
+    ```{r, echo=FALSE}
 
     coye_count_year$sexRatio[coye_count_year$sexRatio == 0] <- "F"
     coye_count_year$sexRatio[coye_count_year$sexRatio == 1] <- "M"
@@ -106,6 +120,11 @@ output:
       theme(plot.title = element_text(hjust = 0.5))
     
     ######################################################################################
+    ```
+    
+* **Bewick's Wren**: Cannot identify trends as more than 90% of the data is unknown.
+
+    ```{r, echo=FALSE}
     
     bewr_count_year$sexRatio[bewr_count_year$sexRatio == 0] <- "F"
     bewr_count_year$sexRatio[bewr_count_year$sexRatio == 1] <- "M"
@@ -116,6 +135,11 @@ output:
       theme(plot.title = element_text(hjust = 0.5))
     
     ######################################################################################
+    ```
+    
+* **Bushtit**: The numbe rof Female birds is higher compare to the number of Male birds and has not changed in 20 years.
+
+    ```{r, echo=FALSE}
     
     bush_count_year$sexRatio[bush_count_year$sexRatio == 0] <- "F"
     bush_count_year$sexRatio[bush_count_year$sexRatio == 1] <- "M"
@@ -126,6 +150,11 @@ output:
       theme(plot.title = element_text(hjust = 0.5))
     
     ######################################################################################
+    ```
+    
+* **Chestnut-backed Chickadee**: Cannot identify trends as more than 90% of the data is unknown.
+
+    ```{r, echo=FALSE}
     
     cbch_count_year$sexRatio[cbch_count_year$sexRatio == 0] <- "F"
     cbch_count_year$sexRatio[cbch_count_year$sexRatio == 1] <- "M"
@@ -140,7 +169,7 @@ output:
     ```
     
 #### Number of Sightings of different species over the years
-* Description here
+* It can be noticed that the number of sightings of Song sparrows is significantly higher than that of other species but has dropped rapidly between 2010 and 2016 which might be a reason to be concerned. The sightings of Bewick's Wren is increasing slowly while the other threee species are fairly constant.
 
     ```{r, echo=FALSE}
     count_sosp_year = count(sosp, c('year'))
@@ -159,7 +188,7 @@ output:
     ```
     
 #### Number of Sightings of different Species by month over the span of 5 years
-* Description here
+* After analyzing these plots, we found a trend that number of sightings is significantly higher in the summer than compared to the cold seasons for all the species.
 
     ```{r, echo=FALSE}
     count_sosp = count(sosp, c('month','year'))
@@ -205,7 +234,7 @@ output:
     ```
     
 #### Change in the average weight of each species over the span of 20 years
-* Description here
+* The average weight of all the species is constant over the past 20 years.
 
     ```{r, echo=FALSE, message=FALSE, warning=FALSE}
     #summary statistics based on years for Common Yellowthroat
@@ -248,7 +277,7 @@ output:
     ```
     
 #### Change in the average weight of each species by month over the span of 5 years
-* Description here
+* The pattern of changes in the weight per month is different for each species, but is fairly constant with a few outliers between 2012 to 2016 
 
     ```{r, echo=FALSE}
     #mean of weights by month for each year for Common Yellowthroat
@@ -376,10 +405,11 @@ output:
     ```
     
 #### Change in the average Wing to Weight Ratio of each species over the span of 20 years
-* Description here
+* The average wing to weight ration of all the species is constant over the past 20 years.
 
     ```{r, echo=FALSE}
     library(dplyr)
+    library(ggplot2)
     #summary statistics based on years for Common Yellowthroat for wingtoweight ratio
     p=coye%>%
       group_by(year)%>% 
@@ -418,7 +448,7 @@ output:
     ```
     
 #### Change in the average Wing to Weight Ratio of each species by month over the span of 5 years
-* Description here
+* The pattern of changes in the wing to weight ratio per month is different for each species, but is fairly constant with a few outliers between 2012 to 2016 
 
     ```{r, echo=FALSE}
     
@@ -544,3 +574,9 @@ output:
 
     ```
     
+## Contributorship Statement
+
+
+
+
+## Proofreader
