@@ -53,7 +53,7 @@ R Plots with Description
 
     ![](r_plots_files/figure-markdown_github/unnamed-chunk-5-1.png)
 
--   **Bushtit**: The numbe rof Female birds is higher compare to the number of Male birds and has not changed in 20 years.
+-   **Bushtit**: The number of Female birds is higher compare to the number of Male birds and has not changed in 20 years.
 
     ![](r_plots_files/figure-markdown_github/unnamed-chunk-6-1.png)
 

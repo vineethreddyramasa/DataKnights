@@ -137,7 +137,7 @@ output:
     ######################################################################################
     ```
     
-* **Bushtit**: The numbe rof Female birds is higher compare to the number of Male birds and has not changed in 20 years.
+* **Bushtit**: The number of Female birds is higher compare to the number of Male birds and has not changed in 20 years.
 
     ```{r, echo=FALSE}
     
