@@ -109,4 +109,4 @@ After we planned how to work on this assignment, Vineeth Reddy plotted majority 
 Proofreader
 -----------
 
--   The document was proofread by Aishwarya Reddy.
+-   The document was proofread by Aishwarya J Reddy.
