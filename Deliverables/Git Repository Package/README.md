@@ -7,13 +7,14 @@ This is the final deliverable for the data analysis done on _Coyote Creek Field 
 3. An overview of package contents
 4. Proofreaders' statement
 
-### **License Details:**
+### **_License Details:_**
+The license details for our work can be found _[here] ()_
 
-### **Team Members:**
+### **_Team Members:_**
 1. Aishwarya Reddy
 2. Vineeth Reddy
 
-### **Overview of Contents:**
+### **_Overview of Contents:_**
 **1. Readme.md**
 * Includes the license information, names of team members, list of all the files and a proofreaders' statement.  
 * The Readme.md document can be found _[here](https://github.com/vineethreddyramasa/DataKnights/blob/master/Deliverables/Git%20Repository%20Package/README.md)_
@@ -44,3 +45,6 @@ This is the final deliverable for the data analysis done on _Coyote Creek Field 
 **7. Contributorship Summary** 
 * Includes a markdown document summarizing the individual contributions for the entire project.
 * The contributorship document can be found _[here] ()_
+
+### **_Proofreaders' Statement:_**
+
