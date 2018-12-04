@@ -44,7 +44,7 @@ The license details for our work can be found _[here] ()_
 
 **7. Contributorship Summary** 
 * Includes a markdown document summarizing the individual contributions for the entire project.
-* The contributorship document can be found _[here] ()_
+* The contributorship document can be found _[here](https://github.com/vineethreddyramasa/DataKnights/blob/master/Deliverables/Git%20Repository%20Package/Contributorship_Summary.md)_
 
 ### **_Proofreaders' Statement:_**
 
