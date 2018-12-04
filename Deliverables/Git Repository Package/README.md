@@ -31,7 +31,7 @@ The license details for our work can be found _[here] ()_
 
 **4. Audience Profile**
 * Includes the audience profile markdown document.
-* The audience profile markdown document can be found _[here] (https://github.com/vineethreddyramasa/DataKnights/blob/master/Deliverables/Git%20Repository%20Package/Audience_Profile.md)_
+* The audience profile markdown document can be found _[here](https://github.com/vineethreddyramasa/DataKnights/blob/master/Deliverables/Git%20Repository%20Package/Audience_Profile.md)_
 
 **5. Summary**
 * Includes summary of the project, research questions and answers to it with related plots or results. 
