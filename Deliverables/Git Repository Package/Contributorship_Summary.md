@@ -4,7 +4,7 @@ _This markdown document summarizes the individual contribution to each deliverab
 
 ### 1. Work Plan & Research Questions
 **_Contributors:_** 
-* Vineeth Reddy, Aishwarya Reddy, David Krupp
+* Vineeth Reddy, Aishwarya Reddy, David Krupp.
 
 ### 2. Audience Profile
 **_Contributors:_**
@@ -19,17 +19,19 @@ _This markdown document summarizes the individual contribution to each deliverab
 ### 4. R Scripts
 **_Contributors:_**
 * All the calculations were done by Vineeth and Aishwarya.
+* Aishwarya proofread the final deliverable.
 
 ### 5. R Plots
 **_Contributors:_**
-* Vineeth Reddy plotted majority of the graphs. 
+* Vineeth plotted majority of the graphs. 
 * The contributorship statement and proofreading was done by Aishwarya Reddy. 
-* Aishwarya Reddy posted the research questions, its respective plot and interpretation to the peer review discussion thread.
+* Aishwarya posted the research questions, its respective plot and interpretation to the peer review discussion thread.
 
 ### 6. Git Repository Package
 **_Contributors:_**
-* Aishwarya Reddy worked on the Git repository package.
-* Vineeth Reddy updated the R scripts and R plots for the final deliverable.
+* Aishwarya worked on the Git repository package.
+* Vineeth updated the R scripts and R plots for the final deliverable.
+* Vineeth proofread the final deliverable.
 
 ### 7. Final Presentation
 **_Contributors:_**
