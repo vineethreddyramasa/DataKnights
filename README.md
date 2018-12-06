@@ -7,6 +7,5 @@
 ### This Analysis is done by
 * Vineeth Reddy 
 * Aishwarya Reddy
-* David Krupp
 
 For Licence Information click **_[here](https://github.com/vineethreddyramasa/DataKnights/blob/master/LICENSE)_** 
