@@ -23,7 +23,7 @@ The license details for our work can be found _[here] ()_
 * Includes a HTML document created using R studio for an integrated draft of R script and R plots.
 * Data cleaning scripts 
 * Scripts and results for visualizations
-* This document can be found _[here] ()_
+* These document can be found here _[R Scripts] ()_ , _[R Plots] ()_
 
 **3. Analysis Script in R**
 * Includes the comprehensive analysis script in R.
