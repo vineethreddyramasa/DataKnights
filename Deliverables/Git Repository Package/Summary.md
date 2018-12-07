@@ -105,19 +105,19 @@ In the above plot, we performed an analysis for sightings of Song Sparrow per mo
 
 In the plot, we can notice that the count is increasing after the month of April and is highest between May and June. The count starts declining towards the month of July and decreases gradually. In the earlier years, like in 2012 and 2013 there was a slight growth in the count during the months of August or September but in the recent years it has only declined. We are assuming the unusual climatic conditions and drastic environmental changes could be the cause of this decline in the latter years.
 
-_Plots for other species can be found in the Final Markdown Document_
+* _Plots for other species can be found in the Final Markdown Document_
 
-_There could be various possible questions on all these plots. We have listed them and tried to answer them to the best of our understanding and interpretation. They are the following,_ 
+#### _There could be various possible questions on all these plots. We have listed them and tried to answer them to the best of our understanding and interpretation. They are the following,_ 
 
-**_What was the reason for plotting the N/A's?_**
+* **_What was the reason for plotting the N/A's?_**
 
 We had a lot of N/A values in our data and in some cases N/A values were more than the number of male birds. So, we thought it would not be a good idea to exclude them from the plot as it would be misleading.
 
-**_In the plot for question 2, what was the reason for including the years that were excluded (1999 and 2002)?_**
+* **_In the plot for question 2, what was the reason for including the years that were excluded (1999 and 2002)?_**
 
 The years 1999 and 2002 had a lot of missing data, so we decided to delete the data from those years during data cleaning. During plotting of the plot 2, we didn't include the data for 1999 and 2002. It was automatically inserted while joining 1998 to 2000 and 2001 to 2003. 
 
-**_What was the issue with the Song Sparrow species from 2010-2016 as the count declined and it had a significant amount of weight loss as well?_**
+* **_What was the issue with the Song Sparrow species from 2010-2016 as the count declined and it had a significant amount of weight loss as well?_**
 
 We feel that the Song Sparrows' weight generally declines during migration and breeding periods. It is noticed that their weight generally increases during the winter period. We studied that Song Sparrows eat everything like plants, insects or seeds. The decline in their body weight in November 2016 is probably due to lack of food supply.
 
