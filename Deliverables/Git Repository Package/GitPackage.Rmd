@@ -1,0 +1,1101 @@
+---
+title: "Final Project Report"
+author: "Data Knights"
+date: "December 06, 2018"
+output:
+  html_document:
+    theme: united
+    toc: yes
+    toc_depth: 5
+    toc_float:
+      collapsed: no
+  github_document:
+    toc: yes
+---
+* * *
+# Data Cleaning Documentation
+
+## Description of the Data Source
+The Data set consists of Bird Banding Data at Coyote Creek Field Station (CCFS) over the span of 20 years from 1996 to 2016. It consists of information such as Banding Number which is a unique number given to each bird, the different capture dates of the birds and various demographic details about the birds captured at CCFS. There are total 78642 records collected and each record contains 25 columns. There are a total of 1154 species of Birds in the Data set, we are planning to consider the data of 2 species which are of interest to the client. Some of the important columns which we are considering for our analysis are as follows:
+
+* Band Number
+* Capture Date
+* First Capture Date
+* Last Capture Date
+* Capture Type
+* Species Code 
+* Age
+* Sex
+* Trapsite
+* Fat
+* BroodPatch
+* CloacalProtuberance
+* WingMolt
+* PrimaryWear
+* WingLength 
+* Weight
+
+We have access to supporting Meta Data Files files which help us understanding certain Codes within the main Data set. We also have a Data set indicating the Trap hours i.e. the operating hours of the trap sites over the past 20 years.
+
+## Intellectual Policy Constraints
+
+The CCFS Bird Banding Dataset is owned by San Fransisco Bay Bird Observatory and we have been granted the permission to maintain an electronic copy of this dataset for analysis. This Data set can be uploaded to a publicly accessible repository on GitHub for collaborative data analysis purposes but should not be made available for use by third parties. SFBBO reserves the right to request that these data be moved into a private repository on GitHub at any time.
+
+The results of the analysis can be used for inclusion in a professional portfolio but should not be published in any popular article or scientific manuscript without the permission of SFBBO. The data must be removed from all the sources upon the termination of the Data Sharing Agreement. This agreement is valid for the duration of the course, "From Data to Decisions".
+
+Note: All this information has been fully extracted from the "Data Sharing Agreement". 
+
+## Description of the Meta Data
+
+This is a complete Bird Banding Data at CCFS over the past 20 years.The dataset contains various details collected when a bird is trapped in one of the trap sites. Meta Data about various fields is as follows:
+
+* **Band Number** is the a unique number given to each bird when they are first captured. It helps to identify each bird uniquely.<br/>
+* **Capture Date** is the date on which the bird was captured **First Captured Date** and **Last Captured Date** gives the first and last encounter date for the individual bird. **Capture Type** enables us to know if it is a newly captured bird or a returning bird. <br/>
+* **Species Code** is a unique code given to each species. (We are planning to replace this field with species name to avoid any confusion) <br/>
+* **Trap site** gives us the details about the site in which the bird was captured. 
+* **Age**, **Sex**, **Fat**, **Weight** gives us the details of age, sex, fat stored in the furcular hollow of the birds body and Mass of the bird in grams respectively.<br/>
+* **BroodPatch** and **CloacalProtuberance** are the female and male breeding characteristics respectively. <br/>
+* **WingMolt** identifies molting feathers in the wing and tail of the bird.<br/>
+* **PrimaryWear** is the amount of wear in the wing feather tips.<br/>
+* **WingLength** is the length of the wing of the bird when captured in millimeters.
+
+## Issues Encountered within the Data
+
+From our Bird Banding data, we are using the "Data Banding Records" sheet for our data analysis. This data sheet has some missing values that we have eliminated in our data cleaning process. The data sheet has data from 1996-2016 and the data from 1999, 2002 has majority of the missing values as well as less data compared to the data from other years. So, for our analysis we will not be considering the data from the years 1999 and 2002.
+
+According to our client, they are more interested in two specific species. Since the variety of species in the client's data is extremely vast, for our analysis we will use the two species mentioned by our client and if possible we will add a few more species later. The two species mentioned by our client are **Song Sparrow** and **Common Yellowthroat**. So, the data for other species will not be considered during our analysis. We also removed some columns that we do not need for our analysis and we will replace the shortforms or codes with their original names using the information from the given metadata sheets.  
+
+Major issues include:
+
+* Both 1999 and 2002 have missing records in the beginning of each year.
+* The coded values are too granular, which causes small n-sizes and uneven categories.
+* R natively reads the "-" character instead of classifying as NA.
+* Several records from the weight column appear to be data entry errors with many standard deviations above sample norms.
+* Many of the bird attributes have missing data in the earlier years.
+
+## Data Remediation
+Both 1999 and 2002 were removed, because our analysis will rely heavily on seasonal trends, which would be impacted by the months of missing data in these years. Attributes were recoded to either two or three categories, which helps sample sizes for trend analysis and future visual encoding decisions with fewer color representations. Weight observations that appeared to be data entry errors were replaced with NA. NA values were reentered into the data where the dash character was found. These data records were not removed, because the main frequency metrics and trends were not impacted by this issue.
+
+## R Syntax with Step-by-Step Description
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE} 
+knitr::opts_chunk$set(cache=TRUE)
+knitr::opts_knit$set(root.dir = "C:/Users/ramas/Documents/ISQA 8086/Final git") 
+```
+
+1.	Remove meta tab and transform Excel files into .csv files (Completed outside of R)
+    *	Metadata Trap.xlsx changes to habitat.csv
+    *	Data BandingRecords 1996-2016.xslx changes to BandingRecords
+
+2.	Read two data files
+    ```{r loaddata}
+    habitat <- read.csv("C:/Users/ramas/Documents/ISQA 8086/Final git/habitat.csv")
+    BandingRecords <- read.csv("C:/Users/ramas/Documents/ISQA 8086/Final git/BandingRecords.csv")
+    ```
+
+3.	Remove unneeded columns
+    ```{r remove columns}
+    FilterVariables <- subset(BandingRecords, select=c("RowID","SpeciesCode", "BandNumber","CaptureDate","FirstCaptureDate","LastCaptureDate", "CaptureType","Age", "Sex", "TrapSite", "Fat", "BroodPatch", "CloacalProtuberance", "WingMolt", "PrimaryWear", "WingLength", "Weight"))
+    ```
+
+4.	Split date column
+    ```{r split date}
+    dateBlock <- unlist(strsplit(as.character(FilterVariables$CaptureDate),"-"))
+    ```
+
+5.	Create year column
+    ```{r create year}
+    yearBlock <- dateBlock[seq(3,length(dateBlock),3)]
+    yearBlockClean <- substr(yearBlock,3,4)
+    FilterVariables$year <- yearBlockClean
+    ```
+
+6.	Create month column
+    ```{r create month}
+    monthBlock <- dateBlock[seq(2,length(dateBlock),3)]
+    FilterVariables$month <- monthBlock
+    ```
+
+7.	Filter out years 1999 and 2002 due to incomplete data
+    ```{r filter}
+    FilterData <- FilterVariables[FilterVariables$year != "99",]
+    FilterData <- FilterData[FilterData$year != "02",]
+    ```
+
+8.	Create new data frame for recoding
+    ```{r new data frame}
+    CleanedBirdData <- FilterData
+    ```
+
+9.	Create sosp column
+    ```{r sosp column}
+    CleanedBirdData$sosp[CleanedBirdData$SpeciesCode == "SOSP"] <- 1
+    CleanedBirdData$sosp[is.na(CleanedBirdData$sosp)] <- 0
+    ```
+
+10.	Create coye column
+    ```{r coye}
+    CleanedBirdData$coye[CleanedBirdData$SpeciesCode == "COYE"] <- 1
+    CleanedBirdData$coye[is.na(CleanedBirdData$coye)] <- 0
+    ```
+
+11.	Create ageRecode column with recoded values
+    ```{r ageRecode}
+    CleanedBirdData$ageRecode[CleanedBirdData$Age == 2] <- 0
+    CleanedBirdData$ageRecode[CleanedBirdData$Age == 1] <- 1
+    CleanedBirdData$ageRecode[CleanedBirdData$Age > 4] <- 1
+    ```
+
+12.	Create sexRecode column with recoded values
+    ```{r sexRecode}
+    CleanedBirdData$sexRecode[CleanedBirdData$Sex == "M"] <- 1
+    CleanedBirdData$sexRecode[CleanedBirdData$Sex == "F"] <- 0
+    ```
+
+13.	Create fatRecode column with recoded values
+    ```{r fatRecode}
+    CleanedBirdData$fatRecode[CleanedBirdData$Fat == "0"] <- 0
+    CleanedBirdData$fatRecode[CleanedBirdData$Fat == "1"] <- 1
+    CleanedBirdData$fatRecode[CleanedBirdData$Fat == "2"] <- 1
+    CleanedBirdData$fatRecode[CleanedBirdData$Fat == "3"] <- 2
+    CleanedBirdData$fatRecode[CleanedBirdData$Fat == "4"] <- 2
+    CleanedBirdData$fatRecode[CleanedBirdData$Fat == "5"] <- 2
+    CleanedBirdData$fatRecode[CleanedBirdData$Fat == "6"] <- 2
+    CleanedBirdData$fatRecode[CleanedBirdData$Fat == "7"] <- 2
+    ```
+
+14.	Create broodRecode column with recoded values
+    ```{r broodRecode}
+    CleanedBirdData$broodRecode[CleanedBirdData$BroodPatch == "0"] <- 0
+    CleanedBirdData$broodRecode[is.na(CleanedBirdData$broodRecode)] <- 1
+    CleanedBirdData$broodRecode[CleanedBirdData$BroodPatch == "-"] <- NA
+    ```
+
+15.	Create cloacalRecode with recoded values
+    ```{r cloacalRecode}
+    CleanedBirdData$cloacalRecode[CleanedBirdData$CloacalProtuberance == "0"] <- 0
+    CleanedBirdData$cloacalRecode[is.na(CleanedBirdData$cloacalRecode)] <- 1
+    CleanedBirdData$cloacalRecode[CleanedBirdData$CloacalProtuberance == "-"] <- NA
+    ```
+
+16.	Create moltRecode with recoded values
+    ```{r moltRecode}
+    CleanedBirdData$moltRecode[CleanedBirdData$WingMolt == "0"] <- 0
+    CleanedBirdData$moltRecode[CleanedBirdData$WingMolt == "S"] <- 1
+    CleanedBirdData$moltRecode[CleanedBirdData$WingMolt == "A"] <- 1
+    ```
+
+17.	Create wearRecode with recoded values
+    ```{r wearRecode}
+    CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "0"] <- 0
+    CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "1"] <- 1
+    CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "2"] <- 1
+    CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "3"] <- 2
+    CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "4"] <- 2
+    CleanedBirdData$wearRecode[CleanedBirdData$PrimaryWear == "5"] <- 2
+    ```
+
+18.	Remove replace SOSP weight outliers with NA
+    ```{r replaceSOSP}
+    CleanedBirdData$cleanWeight[CleanedBirdData$Weight > 40 & CleanedBirdData$SpeciesCode == "SOSP"] <- NA
+    ```
+
+19.	Create wingToWeightRatio Column
+    ```{r wtow}
+    CleanedBirdData$wingToWeightRatio <- CleanedBirdData$WingLength / CleanedBirdData$cleanWeight
+    ```
+
+20.	Left join BandingData and Habitat on TrapSite
+    ```{r banding}
+    fullData <- merge(x = CleanedBirdData, y = habitat, by = "TrapSite", all.x = TRUE)
+    ```
+
+21.	Remove unnecessary columns from the Habitat file
+    ```{r}
+    FullDataFilter <- subset(fullData, select=c("RowID.x","SpeciesCode", "BandNumber","CaptureDate","FirstCaptureDate","LastCaptureDate", "CaptureType","Age", "Sex", "TrapSite", "Fat", "BroodPatch", "CloacalProtuberance", "WingMolt", "PrimaryWear", "WingLength", "Weight", "year", "month", "sosp", "coye", "ageRecode", "sexRecode", "fatRecode", "broodRecode", "cloacalRecode", "moltRecode", "wearRecode", "cleanWeight", "wingToWeightRatio", "Habitat"))
+    ```
+
+22.	(Optional) If desired, remove all observations with at least one null value 
+    ```{r}
+    FullDataRemoveNA <- FullDataFilter[complete.cases(FullDataFilter), ]
+    ```
+
+# R Scripts
+    
+
+1.	The Dataset used for these Scripts was generated during the Data Cleaning process from the original Dataset belonging to Coyote Creek Field Station.
+    Some of the cleaning steps done include:
+    * The name of the cleaned Dataset used is cleanData.csv
+    * The Date Field was split into months, years during Data Cleaning for performing data analysis.
+    * The Data from years 1999 and 2002 was deleted due to incomplete data.
+    * Weight outliers have been set to N/A.
+    * Created a new column called "wingToWeightRatio" to perform some analyses.
+    
+
+    ```{r, echo=FALSE, message=FALSE, warning=FALSE}
+    BandingData <- read.csv("cleanData.csv", header = TRUE, stringsAsFactors = FALSE)
+
+    ```
+
+2.	Creating Subset Dataframes for each of the 5 Species.
+    ```{r }
+    # subset for Common Yellowthroat
+    coye <- subset(BandingData, SpeciesCode=="COYE")
+
+    # subset for Song Sparrow
+    sosp <- subset(BandingData, SpeciesCode=="SOSP")
+    
+    # subset for Bewick's Wren 
+    bewr <- subset(BandingData, SpeciesCode=="BEWR")
+    
+    # subset for Bushtit 
+    bush <- subset(BandingData, SpeciesCode=="BUSH")
+    
+    # subset for Chestnut-backed Chickadee 
+    cbch <- subset(BandingData, SpeciesCode=="CBCH")
+    ```
+
+3.	Summary Statistics for Weight of each species.
+    ```{r}
+    # summary statistics for weight for Common Yellowthroat
+    summary(coye$cleanWeight)
+    # summary statistics for weight for Song Sparrow
+    summary(sosp$cleanWeight)
+    # summary statistics for weight for Bewick's Wren
+    summary(bewr$cleanWeight)
+    # summary statistics for weight for Bushtit
+    summary(bush$cleanWeight)
+    # summary statistics for weight for Chestnut-backed Chickadee
+    summary(cbch$cleanWeight)
+    ```
+
+4.	Summary statistics for Wing to Weight Ratio for each species.
+    ```{r}
+    # summary statistics for Wing to Weight Ratio for each Common Yellowthroat
+    summary(coye$wingToWeightRatio)
+    # summary statistics for Wing to Weight Ratio for each Song Sparrow
+    summary(sosp$wingToWeightRatio)
+    # summary statistics for Wing to Weight Ratio for each Bewick's Wren
+    summary(bewr$wingToWeightRatio)
+    # summary statistics for Wing to Weight Ratio for each Bushtit
+    summary(bush$wingToWeightRatio)
+    # summary statistics for Wing to Weight Ratio for each Chestnut-backed Chickadee
+    summary(cbch$wingToWeightRatio)
+    ```
+
+5.	Count of each species of Bird sighted in different Habitats over the span of 20 years.
+    ```{r}
+    library(plyr)
+    ```
+    ```{r}
+    # Song Sparrow
+    count(sosp,c('Habitat'))
+    # Common Yellowthroat
+    count(coye,c('Habitat'))
+    # Bewick's Wren
+    count(bewr,c('Habitat'))
+    # Bushtit
+    count(bush,c('Habitat'))
+    # Chestnut-backed Chickadee
+    count(cbch,c('Habitat'))
+    ```
+
+6.	Count of each species of Bird sighted in different Trapsites over the span of 20 years.
+    ```{r, results= 'hide'}
+    # Number of Birds sighted in different Trapsites
+    count(sosp,c('TrapSite')) # Song Sparrow
+    count(coye,c('TrapSite')) # Common Yellowthroat
+    count(bewr,c('TrapSite')) # Bewick's Wren
+    count(bush,c('TrapSite')) # Bushtit
+    count(cbch,c('TrapSite')) # Chestnut-backed Chickadee
+    
+    # Output not displayed because its too lengthy
+    ```
+
+7.	Number of Male and Female birds spotted every year.
+    ```{r, results= 'hide'}
+    # Number of Male and Female birds spotted every year
+    count(sosp,c('year','sexRatio')) # Song Sparrow
+    count(coye,c('year','sexRatio')) # Common Yellowthroat
+    count(bewr,c('year','sexRatio')) # Bewick's Wren
+    count(bush,c('year','sexRatio')) # Bushtit
+    count(cbch,c('year','sexRatio')) # Chestnut-backed Chickadee
+    
+    # Output not displayed because its too lengthy
+    ```
+
+8.	Number of birds sighted per month in each year.
+    ```{r}
+    count_sosp = count(sosp, c('month','year')) # Song Sparrow
+    count_coye = count(coye, c('month','year')) # Common Yellowthroat
+    count_bewr = count(bewr, c('month','year')) # Bewick's Wren
+    count_bush = count(bush, c('month','year')) # Bushtit
+    count_cbch = count(cbch, c('month','year')) # Chestnut-backed Chickadee
+    
+    # Output not displayed because its too lengthy
+    ```
+
+9. Number of birds sighted in each year.
+    ```{r}
+    count_coye_year = count(coye, c('year')) # Common Yellowthroat
+    count_sosp_year = count(sosp, c('year')) # Song Sparrow
+    count_bewr_year = count(bewr, c('year')) # Bewick's Wren
+    count_bush_year = count(bush, c('year')) # Bushtit
+    count_cbch_year = count(cbch, c('year')) # Chestnut-backed Chickadee
+    
+    # Displaying just the output for Common Yellowthroat
+    count_coye_year
+    ```
+
+10.	Mean of weights by month for each year for Common Yellowthroat. (Means for remaining species can be found in R script)
+    ```{r}
+    #mean of weights by month for each year for Common Yellowthroat
+    coye_mean = data.frame()
+
+    for ( yr in unique(coye$year) )
+    {
+      for ( mn in unique(coye$month) )
+      {
+        tmp = subset(coye, year==yr & month==mn)
+        mean = mean(tmp$cleanWeight, na.rm=TRUE)
+        coye_mean = rbind(coye_mean, data.frame(yr,mn, mean))
+      }
+    }
+
+    coye_mean <- coye_mean[with(coye_mean, order(mn,yr)), ]
+    
+    ```
+
+11.	Mean of wing to weight ratio by month for each year for Common Yellowthroat.  (Means for remaining species can be found in R script)
+    ```{r}
+    #mean of wing to weight by month for each year for Common Yellowthroat
+    coye_wtow_mean = data.frame()
+
+    for ( yr in unique(coye$year) )
+    {
+      for ( mn in unique(coye$month) )
+      {
+        tmp5 = subset(coye, year==yr & month==mn)
+        mean_c_wtow = mean(tmp5$wingToWeightRatio)
+        coye_wtow_mean = rbind(coye_wtow_mean, data.frame(yr,mn, mean_c_wtow))
+      }
+    }
+
+    coye_wtow_mean <- coye_wtow_mean[with(coye_wtow_mean, order(mn,yr)), ]
+
+    ```
+
+12.	Summary statistics for weight per month. (months of all years combined)
+    ```{r}
+    detach(package:plyr)
+    library(dplyr)
+    
+    #summary statistics for weight based on months for Common Yellowthroat
+    coye%>%
+      group_by(month)%>% 
+      summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
+    ```
+    ```{r, results='hide'}
+    #summary statistics for weight based on months for Song Sparrow
+    sosp%>%
+      group_by(month)%>% 
+      summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
+    
+    #summary statistics for weight based on months for Bewick's Wren
+    bewr%>%
+      group_by(month)%>% 
+      summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
+    
+    #summary statistics for weight based on months for Bushtit
+    bush%>%
+      group_by(month)%>% 
+      summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
+    
+    #summary statistics for weight based on months for Chestnut-backed Chickadee
+    cbch%>%
+      group_by(month)%>% 
+      summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
+    
+    ```
+
+13.	Summary statistics for weight per year.
+    ```{r}
+    detach(package:plyr)
+    library(dplyr)
+    #summary statistics for weight based on years for Common Yellowthroat
+    coye%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
+    ```
+    ```{r, results='hide'}
+    #summary statistics for weight based on years for Song Sparrow
+    sosp%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
+    
+    #summary statistics for weight based on years for Bewick's Wren
+    bewr%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
+    
+    #summary statistics for weight based on years for Bushtitbush
+    bush%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
+    
+    #summary statistics for weight based on years for Chestnut-backed Chickadee
+    cbch%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
+    
+    ```
+
+14.	Summary statistics for Wing to Weight Ratio per month. (months of all years combined)
+    ```{r}
+    detach(package:plyr)
+    library(dplyr)
+    #summary statistics based on months for Common Yellowthroat for wingtoweight ratio
+    coye%>%
+      group_by(month)%>% 
+      summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
+    ```
+    ```{r, results='hide'}
+    #summary statistics based on months for Song Sparrow for wingtoweight ratio
+    sosp%>%
+      group_by(month)%>% 
+      summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
+    
+    #summary statistics based on months for Bewick's Wren for wingtoweight ratio
+    bewr%>%
+      group_by(month)%>% 
+      summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
+    
+    #summary statistics based on months for Bushtit for wingtoweight ratio
+    bush%>%
+      group_by(month)%>% 
+      summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
+    
+    #summary statistics based on months for Chestnut-backed Chickadee for wingtoweight ratio
+    cbch%>%
+      group_by(month)%>% 
+      summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
+    
+    ```
+
+15.	Summary statistics for Wing to weight ratio per year.
+    ```{r}
+    detach(package:plyr)
+    library(dplyr)
+  
+    #summary statistics based on years for Common Yellowthroat for wingtoweight ratio
+    coye%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
+    ```
+    ```{r, results='hide'}
+    #summary statistics based on years for Song Sparrow for wingtoweight ratio
+    sosp%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
+    
+    #summary statistics based on years for Bewick's Wren for wingtoweight ratio
+    bewr%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
+    
+    #summary statistics based on years for Bushtit for wingtoweight ratio
+    bush%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
+    
+    #summary statistics based on years for Chestnut-backed Chickadee for wingtoweight ratio
+    cbch%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
+    
+    ```
+
+16.	Correlation between Weight and Wing length for each species.
+    ```{r}
+    #correlation between weight and wing length for Common Yellowthroat
+    coye_cor = cor(coye$cleanWeight, coye$WingLength)
+    coye_cor
+    
+    #correlation between weight and wing length for Song Sparrow
+    sosp_cor = cor(sosp$cleanWeight, sosp$WingLength,use="complete.obs")
+    sosp_cor
+    
+    #correlation between weight and wing length for Bewick's Wren
+    bewr_cor = cor(bewr$cleanWeight, bewr$WingLength)
+    bewr_cor
+    
+    #correlation between weight and wing length for Bushtit
+    bush_cor = cor(bush$cleanWeight, bush$WingLength)
+    bush_cor
+    
+    #correlation between weight and wing length for Chestnut-backed Chickadee
+    cbch_cor = cor(cbch$cleanWeight, cbch$WingLength)
+    cbch_cor
+    ```
+    
+# R Plots with Description
+    
+## Research Questions
+* How is Bird Banding Data Changing over time? (Changes in the number of sightings)
+* Are the breeding and molting seasons changing?
+* Has the sex Ratio for birds changed significantly, and does it have a trend?
+* Has the number of birds seen each year been stable or trending in a certain direction?
+* Has been any change in the wing to weight ratio of the birds over past 20 years?
+* Finding the seasonal patterns in the weight changes in the birds.
+* Finding the seasonal patterns in Wing to Weight Ratio changes in birds.
+
+    ```{r , echo=FALSE, message=FALSE, warning=FALSE}
+    BandingData <- read.csv("cleanData.csv", header = TRUE, stringsAsFactors = FALSE)
+
+    ```
+
+    ```{r, echo=FALSE, warning=FALSE}
+    #Recoding year
+    BandingData$year[BandingData$year == 0] <- 2000
+    BandingData$year[BandingData$year == 1] <- 2001
+    BandingData$year[BandingData$year == 3] <- 2003
+    BandingData$year[BandingData$year == 4] <- 2004
+    BandingData$year[BandingData$year == 5] <- 2005
+    BandingData$year[BandingData$year == 6] <- 2006
+    BandingData$year[BandingData$year == 7] <- 2007
+    BandingData$year[BandingData$year == 8] <- 2008
+    BandingData$year[BandingData$year == 9] <- 2009
+    BandingData$year[BandingData$year == 10] <- 2010
+    BandingData$year[BandingData$year == 11] <- 2011
+    BandingData$year[BandingData$year == 12] <- 2012
+    BandingData$year[BandingData$year == 13] <- 2013
+    BandingData$year[BandingData$year == 14] <- 2014
+    BandingData$year[BandingData$year == 15] <- 2015
+    BandingData$year[BandingData$year == 16] <- 2016
+    BandingData$year[BandingData$year == 96] <- 1996
+    BandingData$year[BandingData$year == 97] <- 1997
+    BandingData$year[BandingData$year == 98] <- 1998
+    
+    # Creating subset for Common Yellowthroat species
+    coye <- subset(BandingData, SpeciesCode=="COYE")
+    
+    # Creating subset for Song Sparrow species
+    sosp <- subset(BandingData, SpeciesCode=="SOSP")
+    
+    # Creating subset for Bewick's Wren species
+    bewr <- subset(BandingData, SpeciesCode=="BEWR")
+    
+    # Creating subset for  Bushtit species
+    bush <- subset(BandingData, SpeciesCode=="BUSH")
+    
+    # Creating subset for Chestnut-backed Chickadee species 
+    cbch <- subset(BandingData, SpeciesCode=="CBCH")
+    
+    
+    
+    library(plyr)
+    
+    # Number of Male and Female birds spotted every year
+    sosp_count_year=count(sosp,c('year','sexRatio'))
+    coye_count_year=count(coye,c('year','sexRatio'))
+    bewr_count_year=count(bewr,c('year','sexRatio'))
+    bush_count_year=count(bush,c('year','sexRatio'))
+    cbch_count_year=count(cbch,c('year','sexRatio'))
+    
+    # comparision of gender ratio
+    library(tidyr)
+    library(ggplot2)
+    ```
+    
+## Change in the Sex Ratio of Different species over the years
+* **Song Sparrow**: We cannot quite comment on the Sex Ratio of Song Sparrows as there are a lot of NA values, which means the sex of the bird was not determined at the time of capture. However, we can see that population of male birds is higher that female birds for majority of the years.  
+
+    ```{r, echo=FALSE}
+    
+    # Change in the Sex Ratio of Different species over the years
+
+    sosp_count_year$sexRatio[sosp_count_year$sexRatio == 0] <- "F"
+    sosp_count_year$sexRatio[sosp_count_year$sexRatio == 1] <- "M"
+    
+    
+    ggplot(data=sosp_count_year, aes(x=year, y=freq,width=.75, fill=sexRatio)) +
+      geom_bar(stat="identity", position=position_dodge())+xlab("Year")+ylab("Count")+
+      labs(title="Change in Sex Ratio of Song Sparrow",fill="Sex")+
+      theme(plot.title = element_text(hjust = 0.5)
+            )
+    ########################################################################################
+    ```
+
+* **Common Yellowthroat**: The number of Male birds is significantly higher than that of Female birds and is being constant over the years.
+
+    ```{r, echo=FALSE}
+
+    coye_count_year$sexRatio[coye_count_year$sexRatio == 0] <- "F"
+    coye_count_year$sexRatio[coye_count_year$sexRatio == 1] <- "M"
+    
+    ggplot(data=coye_count_year, aes(x=year, y=freq,width=.75, fill=sexRatio)) +
+      geom_bar(stat="identity", position=position_dodge())+xlab("Year")+ylab("Count")+
+      labs(title="Change in Sex Ratio of Common Yellowthroat",fill="Sex")+
+      theme(plot.title = element_text(hjust = 0.5))
+    
+    ######################################################################################
+    ```
+    
+* **Bewick's Wren**: Cannot identify trends as more than 90% of the data is unknown.
+
+    ```{r, echo=FALSE}
+    
+    bewr_count_year$sexRatio[bewr_count_year$sexRatio == 0] <- "F"
+    bewr_count_year$sexRatio[bewr_count_year$sexRatio == 1] <- "M"
+    
+    ggplot(data=bewr_count_year, aes(x=year, y=freq,width=.75, fill=sexRatio)) +
+      geom_bar(stat="identity", position=position_dodge())+xlab("Year")+ylab("Count")+
+      labs(title="Change in Sex Ratio of Bewick's Wren",fill="Sex")+
+      theme(plot.title = element_text(hjust = 0.5))
+    
+    ######################################################################################
+    ```
+    
+* **Bushtit**: The number of Female birds is higher compare to the number of Male birds and has not changed in 20 years.
+
+    ```{r, echo=FALSE}
+    
+    bush_count_year$sexRatio[bush_count_year$sexRatio == 0] <- "F"
+    bush_count_year$sexRatio[bush_count_year$sexRatio == 1] <- "M"
+    
+    ggplot(data=bush_count_year, aes(x=year, y=freq,width=.75, fill=sexRatio)) +
+      geom_bar(stat="identity", position=position_dodge())+xlab("Year")+ylab("Count")+
+      labs(title="Change in Sex Ratio of Bushtit",fill="Sex")+
+      theme(plot.title = element_text(hjust = 0.5))
+    
+    ######################################################################################
+    ```
+    
+* **Chestnut-backed Chickadee**: Cannot identify trends as more than 90% of the data is unknown.
+
+    ```{r, echo=FALSE}
+    
+    cbch_count_year$sexRatio[cbch_count_year$sexRatio == 0] <- "F"
+    cbch_count_year$sexRatio[cbch_count_year$sexRatio == 1] <- "M"
+    
+    ggplot(data=cbch_count_year, aes(x=year, y=freq,width=.75, fill=sexRatio)) +
+      geom_bar(stat="identity", position=position_dodge())+xlab("Year")+ylab("Count")+
+      labs(title="Change in Sex Ratio of Chestnut-backed Chickadee",fill="Sex")+
+      theme(plot.title = element_text(hjust = 0.5))
+    
+    ######################################################################################
+    
+    ```
+    
+## Number of Sightings of different species over the years
+* It can be noticed that the number of sightings of Song sparrows is significantly higher than that of other species but has dropped rapidly between 2010 and 2016 which might be a reason to be concerned. The sightings of Bewick's Wren is increasing slowly while the other three species are fairly constant.
+
+    ```{r, echo=FALSE}
+    count_sosp_year = count(sosp, c('year'))
+    count_coye_year = count(coye,  c('year'))
+    count_bewr_year = count(bewr, c('year'))
+    count_bush_year = count(bush,  c('year'))
+    count_cbch_year = count(cbch,  c('year'))
+    
+    ggplot() + 
+      geom_line(data=count_sosp_year, aes(x=year, y=freq, color="Song sparrow"),size=1) +
+      geom_line(data=count_coye_year, aes(x=year, y=freq, color="Common Yellow Throat"),size=1)+
+      geom_line(data=count_bewr_year, aes(x=year, y=freq, color="Bewick's Wren"),size=1) +
+      geom_line(data=count_bush_year, aes(x=year, y=freq, color="Bushtit"),size=1)+
+      geom_line(data=count_cbch_year, aes(x=year, y=freq, color="Chestnut-backed Chickadee"),size=1)+xlab("Year")+ylab("Count")+labs(title="Sightings by Year",colour="Species Name")+
+      theme(plot.title = element_text(hjust = 0.5))
+    ```
+    
+## Number of Sightings of different Species by month over the span of 5 years
+* After analyzing these plots, we found a trend that number of sightings is significantly higher in the summer than compared to the cold seasons for all the species.
+
+    ```{r, echo=FALSE}
+    count_sosp = count(sosp, c('month','year'))
+    count_coye = count(coye,c('month','year'))
+    count_bewr = count(bewr, c('month','year'))
+    count_bush = count(bush, c('month','year'))
+    count_cbch = count(cbch, c('month','year'))
+    
+    a <- subset(count_sosp, year=="2016"|year=="2015"|year=="2014"|year=="2013"|year=="2012")
+    a$year<-factor(a$year)
+    ggplot(data = a, aes(x = month, y = freq, color=year)) + 
+      geom_line()+ geom_point()+
+      xlab("Month")+ylab("Count")+labs(title="Sightings per month for Song Sparrow",colour="Year")+
+      theme(plot.title = element_text(hjust = 0.5))+scale_x_continuous(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12))
+    
+    b <- subset(count_coye, year=="2016"|year=="2015"|year=="2014"|year=="2013"|year=="2012")
+    b$year<-factor(b$year)
+    ggplot(data = b, aes(x = month, y = freq, color=year)) + 
+      geom_line()+ geom_point()+
+      xlab("Month")+ylab("Count")+labs(title="Sightings per month for Common Yellowthroat",colour="Year")+
+      theme(plot.title = element_text(hjust = 0.5))+scale_x_continuous(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12))
+    
+    c <- subset(count_bewr, year=="2016"|year=="2015"|year=="2014"|year=="2013"|year=="2012")
+    c$year<-factor(c$year)
+    ggplot(data = c, aes(x = month, y = freq, color=year)) + 
+      geom_line()+ geom_point()+
+      xlab("Month")+ylab("Count")+labs(title="Sightings per month for Bewick's Wren",colour="Year")+
+      theme(plot.title = element_text(hjust = 0.5))+scale_x_continuous(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12))
+    
+    d <- subset(count_bush, year=="2016"|year=="2015"|year=="2014"|year=="2013"|year=="2012")
+    d$year<-factor(d$year)
+    ggplot(data = d, aes(x = month, y = freq, color=year)) + 
+      geom_line()+ geom_point()+
+      xlab("Month")+ylab("Count")+labs(title="Sightings per month for Bushtit",colour="Year")+
+      theme(plot.title = element_text(hjust = 0.5))+scale_x_continuous(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12))
+    
+    e <- subset(count_cbch, year=="2016"|year=="2015"|year=="2014"|year=="2013"|year=="2012")
+    e$year<-factor(e$year)
+    ggplot(data = e, aes(x = month, y = freq, color=year)) + 
+      geom_line()+ geom_point()+
+      xlab("Month")+ylab("Count")+labs(title="Sightings per month for Chestnut-backed Chickadee",colour="Year")+
+      theme(plot.title = element_text(hjust = 0.5))+scale_x_continuous(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12))
+    ```
+    
+## Change in the average weight of each species over the span of 20 years
+* The average weight of all the species is constant over the past 20 years.
+
+    ```{r, echo=FALSE, message=FALSE, warning=FALSE}
+    #summary statistics based on years for Common Yellowthroat
+    detach(package:plyr)
+    library(dplyr)
+    
+    f =coye%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
+    
+    #summary statistics based on years for Song Sparrow
+    g=sosp%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
+    
+    #summary statistics based on years for Bewick's Wren
+    h=bewr%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
+    
+    #summary statistics based on years for Bushtit
+    i=bush%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
+    
+    #summary statistics based on years for Chestnut-backed Chickadee
+    j=cbch%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(cleanWeight, na.rm=TRUE),Max=max(cleanWeight, na.rm=TRUE), Min=min(cleanWeight, na.rm=TRUE), Median=median(cleanWeight, na.rm=TRUE), Std=sd(cleanWeight, na.rm=TRUE))
+    
+    ##################################################################################################################
+    
+    ggplot() + 
+      geom_line(data=f, aes(x=year, y=Mean, color="Song sparrow"),size=1) +
+      geom_line(data=g, aes(x=year, y=Mean, color="Common Yellow Throat"),size=1)+
+      geom_line(data=h, aes(x=year, y=Mean, color="Bewick's Wren"),size=1) +
+      geom_line(data=i, aes(x=year, y=Mean, color="Bushtit"),size=1)+
+      geom_line(data=j, aes(x=year, y=Mean, color="Chestnut-backed Chickadee"),size=1)+xlab("Year")+ylab("Mean of Weights")+labs(title="Weight changes by Year",colour="Species Name")+
+      theme(plot.title = element_text(hjust = 0.5))
+    ```
+    
+## Change in the average weight of each species by month over the span of 5 years
+* The pattern of changes in the weight per month is different for each species, but is fairly constant with a few outliers between 2012 to 2016 
+
+    ```{r, echo=FALSE}
+    #mean of weights by month for each year for Common Yellowthroat
+    coye_mean = data.frame()
+    
+    for ( yr in unique(coye$year) )
+    {
+      for ( mn in unique(coye$month) )
+      {
+        tmp = subset(coye, year==yr & month==mn)
+        mean = mean(tmp$cleanWeight, na.rm=TRUE)
+        coye_mean = rbind(coye_mean, data.frame(yr,mn, mean))
+      }
+    }
+    
+    coye_mean <- coye_mean[with(coye_mean, order(mn,yr)), ]
+    
+    ###################################################################################################
+    
+    #mean of weights by month for each year for Song Sparrow
+    sosp_mean = data.frame()
+    
+    for ( yr in unique(coye$year) )
+    {
+      for ( mn in unique(coye$month) )
+      {
+        tmp1 = subset(sosp, year==yr & month==mn)
+        mean1 = mean(tmp1$cleanWeight, na.rm=TRUE)
+        sosp_mean = rbind(sosp_mean, data.frame(yr,mn, mean1))
+      }
+    }
+    
+    sosp_mean <- sosp_mean[with(sosp_mean, order(mn,yr)), ]
+    
+    ###################################################################################################
+    
+    #mean of weights by month for each year for Bewick's Wren
+    bewr_mean = data.frame()
+    
+    for ( yr in unique(bewr$year) )
+    {
+      for ( mn in unique(bewr$month) )
+      {
+        tmp2 = subset(bewr, year==yr & month==mn)
+        mean2 = mean(tmp2$cleanWeight, na.rm=TRUE)
+        bewr_mean = rbind(bewr_mean, data.frame(yr,mn, mean2))
+      }
+    }
+    
+    bewr_mean <- bewr_mean[with(bewr_mean, order(mn,yr)), ]
+    
+    ###################################################################################################
+    
+    #mean of weights by month for each year for Bushtit
+    bush_mean = data.frame()
+    
+    for ( yr in unique(bush$year) )
+    {
+      for ( mn in unique(bush$month) )
+      {
+        tmp3 = subset(bush, year==yr & month==mn)
+        mean3 = mean(tmp3$cleanWeight, na.rm=TRUE)
+        bush_mean = rbind(bush_mean, data.frame(yr,mn, mean3))
+      }
+    }
+    
+    bush_mean <- bush_mean[with(bush_mean, order(mn,yr)), ]
+    
+    
+    ###################################################################################################
+    
+    #mean of weights by month for each year for Chestnut-backed Chickadee 
+    cbch_mean = data.frame()
+    
+    for ( yr in unique(cbch$year) )
+    {
+      for ( mn in unique(cbch$month) )
+      {
+        tmp4 = subset(cbch, year==yr & month==mn)
+        mean4 = mean(tmp4$cleanWeight, na.rm=TRUE)
+        cbch_mean = rbind(cbch_mean, data.frame(yr,mn, mean4))
+      }
+    }
+    
+    cbch_mean <- cbch_mean[with(cbch_mean, order(mn,yr)), ]
+    
+    ####################################################################################################
+    
+    k <- subset(sosp_mean, yr=="2016"|yr=="2015"|yr=="2014"|yr=="2013"|yr=="2012")
+    k$yr<-factor(k$yr)
+    ggplot(data = k, aes(x = mn, y = mean1, color=yr)) + 
+      geom_line()+ geom_point()+
+      xlab("Month")+ylab("Weight")+labs(title="Weight changes per month for Song Sparrow",colour="Year")+
+      theme(plot.title = element_text(hjust = 0.5))+scale_x_continuous(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12))
+    
+    
+    l <- subset(coye_mean, yr=="2016"|yr=="2015"|yr=="2014"|yr=="2013"|yr=="2012")
+    l$yr<-factor(l$yr)
+    ggplot(data = l, aes(x = mn, y = mean, color=yr)) + 
+      geom_line()+ geom_point()+
+      xlab("Month")+ylab("Weight")+labs(title="Weight changes per month for Common Yellowthroat",colour="Year")+
+      theme(plot.title = element_text(hjust = 0.5))+scale_x_continuous(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12))
+    
+    m <- subset(bewr_mean, yr=="2016"|yr=="2015"|yr=="2014"|yr=="2013"|yr=="2012")
+    m$yr<-factor(m$yr)
+    ggplot(data = m, aes(x = mn, y = mean2, color=yr)) + 
+      geom_line()+ geom_point()+
+      xlab("Month")+ylab("Weight")+labs(title="Weight changes per month for Bewick's Wren",colour="Year")+
+      theme(plot.title = element_text(hjust = 0.5))+scale_x_continuous(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12))
+    
+    n <- subset(bush_mean, yr=="2016"|yr=="2015"|yr=="2014"|yr=="2013"|yr=="2012")
+    n$yr<-factor(n$yr)
+    ggplot(data = n, aes(x = mn, y = mean3, color=yr)) + 
+      geom_line()+ geom_point()+
+      xlab("Month")+ylab("Weight")+labs(title="Weight changes per month for Bushtit",colour="Year")+
+      theme(plot.title = element_text(hjust = 0.5))+scale_x_continuous(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12))
+    
+    o <- subset(cbch_mean, yr=="2016"|yr=="2015"|yr=="2014"|yr=="2013"|yr=="2012")
+    o$yr<-factor(o$yr)
+    ggplot(data = o, aes(x = mn, y = mean4, color=yr)) + 
+      geom_line()+ geom_point()+
+      xlab("Month")+ylab("Weight")+labs(title="Weight changes per month for Chestnut-backed Chickadee",colour="Year")+
+      theme(plot.title = element_text(hjust = 0.5))+scale_x_continuous(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12))
+    
+    ```
+    
+## Change in the average Wing to Weight Ratio of each species over the span of 20 years
+* The average wing to weight ratio of all the species is constant over the past 20 years.
+
+    ```{r, echo=FALSE}
+    library(dplyr)
+    library(ggplot2)
+    #summary statistics based on years for Common Yellowthroat for wingtoweight ratio
+    p=coye%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
+    
+    #summary statistics based on years for Song Sparrow for wingtoweight ratio
+    q=sosp%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
+    
+    #summary statistics based on years for Bewick's Wren for wingtoweight ratio
+    r=bewr%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
+    
+    #summary statistics based on years for Bushtit for wingtoweight ratio
+    s=bush%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
+    
+    #summary statistics based on years for Chestnut-backed Chickadee for wingtoweight ratio
+    t=cbch%>%
+      group_by(year)%>% 
+      summarise(Mean=mean(wingToWeightRatio, na.rm=TRUE),Max=max(wingToWeightRatio, na.rm=TRUE), Min=min(wingToWeightRatio, na.rm=TRUE), Median=median(wingToWeightRatio, na.rm=TRUE), Std=sd(wingToWeightRatio, na.rm=TRUE))
+    
+    ############################################################################################################################################
+    
+    ggplot() + 
+      geom_line(data=p, aes(x=year, y=Mean, color="Song sparrow"),size=1) +
+      geom_line(data=q, aes(x=year, y=Mean, color="Common Yellow Throat"),size=1)+
+      geom_line(data=r, aes(x=year, y=Mean, color="Bewick's Wren"),size=1) +
+      geom_line(data=s, aes(x=year, y=Mean, color="Bushtit"),size=1)+
+      geom_line(data=t, aes(x=year, y=Mean, color="Chestnut-backed Chickadee"),size=1)+xlab("Year")+ylab("Mean of Wing to Weight Ratios")+labs(title="Wing to Weight Ratio changes by Year",colour="Species Name")+
+      theme(plot.title = element_text(hjust = 0.5))
+    
+    ```
+    
+## Change in the average Wing to Weight Ratio of each species by month over the span of 5 years
+* The pattern of changes in the wing to weight ratio per month is different for each species, but is fairly constant with a few outliers between 2012 to 2016 
+
+    ```{r, echo=FALSE}
+    
+    #mean of wing to weight by month for each year for Common Yellowthroat
+    coye_wtow_mean = data.frame()
+    
+    for ( yr in unique(coye$year) )
+    {
+      for ( mn in unique(coye$month) )
+      {
+        tmp5 = subset(coye, year==yr & month==mn)
+        mean_c_wtow = mean(tmp5$wingToWeightRatio)
+        coye_wtow_mean = rbind(coye_wtow_mean, data.frame(yr,mn, mean_c_wtow))
+      }
+    }
+    
+    coye_wtow_mean <- coye_wtow_mean[with(coye_wtow_mean, order(mn,yr)), ]
+    
+    ####################################################################################################
+    
+    #mean of wing to weight by month for each year for Song Sparrow
+    sosp_wtow_mean = data.frame()
+    
+    for ( yr in unique(sosp$year) )
+    {
+      for ( mn in unique(sosp$month) )
+      {
+        tmp6 = subset(sosp, year==yr & month==mn)
+        mean_s_wtow = mean(tmp6$wingToWeightRatio)
+        sosp_wtow_mean = rbind(sosp_wtow_mean, data.frame(yr,mn, mean_s_wtow))
+      }
+    }
+    
+    sosp_wtow_mean <- sosp_wtow_mean[with(sosp_wtow_mean, order(mn,yr)), ]
+    
+    ####################################################################################################
+    
+    #mean of wing to weight by month for each year for Bewick's Wren
+    bewr_wtow_mean = data.frame()
+    
+    for ( yr in unique(bewr$year) )
+    {
+      for ( mn in unique(bewr$month) )
+      {
+        tmp7 = subset(bewr, year==yr & month==mn)
+        mean_be_wtow = mean(tmp7$wingToWeightRatio)
+        bewr_wtow_mean = rbind(bewr_wtow_mean, data.frame(yr,mn, mean_be_wtow))
+      }
+    }
+    
+    bewr_wtow_mean <- bewr_wtow_mean[with(bewr_wtow_mean, order(mn,yr)), ]
+    
+    ####################################################################################################
+    
+    #mean of wing to weight by month for each year for Bushtit
+    bush_wtow_mean = data.frame()
+    
+    for ( yr in unique(bush$year) )
+    {
+      for ( mn in unique(bush$month) )
+      {
+        tmp8 = subset(bush, year==yr & month==mn)
+        mean_bu_wtow = mean(tmp8$wingToWeightRatio)
+        bush_wtow_mean = rbind(bush_wtow_mean, data.frame(yr,mn, mean_bu_wtow))
+      }
+    }
+    
+    bush_wtow_mean <- bush_wtow_mean[with(bush_wtow_mean, order(mn,yr)), ]
+    
+    ####################################################################################################
+    
+    #mean of wing to weight by month for each year for Chestnut-backed Chickadee
+    cbch_wtow_mean = data.frame()
+    
+    for ( yr in unique(cbch$year) )
+    {
+      for ( mn in unique(cbch$month) )
+      {
+        tmp9 = subset(cbch, year==yr & month==mn)
+        mean_cb_wtow = mean(tmp9$wingToWeightRatio)
+        cbch_wtow_mean = rbind(cbch_wtow_mean, data.frame(yr,mn, mean_cb_wtow))
+      }
+    }
+    
+    cbch_wtow_mean <- cbch_wtow_mean[with(cbch_wtow_mean, order(mn,yr)), ]
+    
+    ########################################################################################################
+    
+    u <- subset(sosp_wtow_mean, yr=="2016"|yr=="2015"|yr=="2014"|yr=="2013"|yr=="2012")
+    u$yr<-factor(u$yr)
+    ggplot(data = u, aes(x = mn, y = mean_s_wtow, color=yr)) + 
+      geom_line()+ geom_point()+
+      xlab("Month")+ylab("Wing to Weight Ratio")+labs(title="Change in Wing to weight Ratio per month for Song Sparrow",colour="Year")+
+      theme(plot.title = element_text(hjust = 0.5))+scale_x_continuous(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12))
+    
+    v <- subset(coye_wtow_mean, yr=="2016"|yr=="2015"|yr=="2014"|yr=="2013"|yr=="2012")
+    v$yr<-factor(v$yr)
+    ggplot(data = v, aes(x = mn, y = mean_c_wtow, color=yr)) + 
+      geom_line()+ geom_point()+
+      xlab("Month")+ylab("Wing to Weight Ratio")+labs(title="Change in Wing to weight Ratio per month for Common Yellowthroat",colour="Year")+
+      theme(plot.title = element_text(hjust = 0.5))+scale_x_continuous(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12))
+    
+    w <- subset(bewr_wtow_mean, yr=="2016"|yr=="2015"|yr=="2014"|yr=="2013"|yr=="2012")
+    w$yr<-factor(w$yr)
+    ggplot(data = w, aes(x = mn, y = mean_be_wtow, color=yr)) + 
+      geom_line()+ geom_point()+
+      xlab("Month")+ylab("Wing to Weight Ratio")+labs(title="Change in Wing to weight Ratio per month for Bewick's Wren",colour="Year")+
+      theme(plot.title = element_text(hjust = 0.5))+scale_x_continuous(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12))
+    
+    x <- subset(bush_wtow_mean, yr=="2016"|yr=="2015"|yr=="2014"|yr=="2013"|yr=="2012")
+    x$yr<-factor(x$yr)
+    ggplot(data = x, aes(x = mn, y = mean_bu_wtow, color=yr)) + 
+      geom_line()+ geom_point()+
+      xlab("Month")+ylab("Wing to Weight Ratio")+labs(title="Change in Wing to weight Ratio per month for Bushtit",colour="Year")+
+      theme(plot.title = element_text(hjust = 0.5))+scale_x_continuous(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12))
+    
+    y <- subset(cbch_wtow_mean, yr=="2016"|yr=="2015"|yr=="2014"|yr=="2013"|yr=="2012")
+    y$yr<-factor(y$yr)
+    ggplot(data = y, aes(x = mn, y = mean_cb_wtow, color=yr)) + 
+      geom_line()+ geom_point()+
+      xlab("Month")+ylab("Wing to Weight Ratio")+labs(title="Change in Wing to weight Ratio per month for Chestnut-backed Chickadee",colour="Year")+
+      theme(plot.title = element_text(hjust = 0.5))+scale_x_continuous(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12))
+
+    ```
+  
+# Contributorship Statement
+
+Aishwarya Reddy and Vineeth Reddy worked together on the final presentation and Git Repository Package of the project. Most of the work for all the assignments were done together with each others help and support. The contribution is equal for both the team members. Since our third team member, David Krupp had to unfortunately drop the course after the intial few weeks, Aishwarya Reddy and Vineeth Reddy worked together on everything and contributed the same. 
+
+# Proofreader
+
+* Vineeth Reddy has proofread this document
