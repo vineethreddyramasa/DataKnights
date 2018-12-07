@@ -19,11 +19,11 @@ The license details for our work can be found **_[here](https://github.com/vinee
 * Includes the license information, names of team members, list of all the files and a proofreaders' statement.  
 * The Readme.md document can be found _[here](https://github.com/vineethreddyramasa/DataKnights/blob/master/Deliverables/Git%20Repository%20Package/README.md)_
 
-**2. HTML documents for Data Cleaning, R Scripts and R Plots**
-* Includes  HTML documents created using R studio for an integrated draft of R script and R plots.
+**2. HTML document for Data Cleaning, R Scripts and R Plots**
+* Includes  HTML document created using R studio for an integrated draft of Data Cleaning, R script and R plots.
 * Data cleaning scripts 
 * Scripts and results for visualizations
-* These documents can be found here _[Data Cleaning](https://rpubs.com/vineeth24595/datacleaning)_, _[R Scripts](https://rpubs.com/vineeth24595/r_scripts)_, _[R Plots](https://rpubs.com/vineeth24595/r_plots)_
+* These documents can be found _[here](https://rpubs.com/vineeth24595/dataknights)_
 
 **3. Analysis Script in R**
 * Includes the comprehensive analysis script in R.
