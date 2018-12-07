@@ -23,7 +23,7 @@ The license details for our work can be found **_[here](https://github.com/vinee
 * Data cleaning scripts 
 * Scripts and results for visualizations
 * These documents can be found _[here](https://rpubs.com/vineeth24595/dataknights)_
-* R Markdown for these can be found _[here](https://rpubs.com/vineeth24595/dataknights)_
+* R Markdown for these can be found _[here](https://github.com/vineethreddyramasa/DataKnights/blob/master/Deliverables/Git%20Repository%20Package/GitPackage.md)_
 
 **3. Analysis Script in R**
 * Includes the comprehensive analysis script in R.
