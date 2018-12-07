@@ -72,7 +72,9 @@ One aspect that we are trying to analyze is the weight of the species. Fat depen
 ### 1. Finding the seasonal patterns in the weight changes in the birds.
 
 _Change in the average weight of each species by month over the span of 5 years:_
-‘plot image’
+
+![](GitPackage_files/figure-markdown_github/unnamed-chunk-34-1.png)
+
 **Song Sparrow**: The pattern of changes in the weight per month is different for each species. It is fairly constant with a few outliers between 2012 to 2016. We can notice that there is a decrease in the average weight during the months of June to November and then an increase after that. But in 2016, there was a significant drop during the month of November. It seems like there is a decrease in the average species weight during winter time and an increase as summer comes around.
 
 ### 2. Has the number of birds seen each year been stable or trending in a certain direction?
