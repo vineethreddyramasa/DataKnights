@@ -27,7 +27,7 @@ The license details for our work can be found **_[here](https://github.com/vinee
 
 **3. Analysis Script in R**
 * Includes the comprehensive analysis script in R.
-* The R script document can be found _[here] ()_
+* The R script document can be found _[here](https://github.com/vineethreddyramasa/DataKnights/blob/master/Deliverables/Git%20Repository%20Package/GitPackage.R)_
 
 **4. Audience Profile**
 * Includes the audience profile markdown document.
