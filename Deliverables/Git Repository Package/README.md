@@ -8,7 +8,7 @@ This is the final deliverable for the data analysis done on _Coyote Creek Field 
 4. Proofreaders' statement
 
 ### **_License Details:_**
-The license details for our work can be found _[here] ()_
+The license details for our work can be found **_[here](https://github.com/vineethreddyramasa/DataKnights/blob/master/LICENSE)_**
 
 ### **_Team Members:_**
 1. Aishwarya Reddy
