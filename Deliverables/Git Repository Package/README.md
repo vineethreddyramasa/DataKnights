@@ -22,8 +22,8 @@ The license details for our work can be found **_[here](https://github.com/vinee
 * Includes  HTML document created using R studio for an integrated draft of Data Cleaning, R script and R plots.
 * Data cleaning scripts 
 * Scripts and results for visualizations
-* These documents can be found _[here](https://rpubs.com/vineeth24595/dataknights)_
-* R Markdown for these can be found _[here](https://github.com/vineethreddyramasa/DataKnights/blob/master/Deliverables/Git%20Repository%20Package/GitPackage.md)_
+* This HTML document can be found _[here](https://rpubs.com/vineeth24595/dataknights)_
+* R Markdown for this report can be found _[here](https://github.com/vineethreddyramasa/DataKnights/blob/master/Deliverables/Git%20Repository%20Package/GitPackage.md)_
 
 **3. Analysis Script in R**
 * Includes the comprehensive analysis script in R.
