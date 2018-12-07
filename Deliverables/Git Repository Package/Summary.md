@@ -1,7 +1,7 @@
 
 # Summary Document
 
-This is the summary document by team DataKnights for our project of ‘Coyote Creek Field Station’. 
+This is the summary document by team DataKnights for our Data Analysis project of ‘Coyote Creek Field Station’. 
 
 ## Table of Contents:
 This document includes the following,
