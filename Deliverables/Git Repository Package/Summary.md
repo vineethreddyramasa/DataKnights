@@ -12,7 +12,7 @@ This document includes the following,
 * Supporting Plots and Interpretations
 * References
 
-## Our Audience and Analysis Target: 
+## Our Audience and Analysis Targets: 
 
 The target audience for our dataset can be the following, 
 
