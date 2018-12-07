@@ -36,7 +36,8 @@ The license details for our work can be found **_[here](https://github.com/vinee
 **5. Summary**
 * Includes summary of the project, research questions and answers to it with related plots or results. 
 * References 
-* The summary document in HTML format can be found _[here] ()_
+* The summary document in HTML format can be found _[here](https://rpubs.com/vineeth24595/summary)_
+* R Markdown for summary can be found _[here](https://github.com/vineethreddyramasa/DataKnights/blob/master/Deliverables/Git%20Repository%20Package/Summary.md)_
 
 **6. Presentation** 
 * Includes our presentation slides in PDF format.
@@ -47,4 +48,4 @@ The license details for our work can be found **_[here](https://github.com/vinee
 * The contributorship document can be found _[here](https://github.com/vineethreddyramasa/DataKnights/blob/master/Deliverables/Git%20Repository%20Package/Contributorship_Summary.md)_
 
 ### **_Proofreaders' Statement:_**
-
+Vineeth Reddy has Proofread this Document
