@@ -75,13 +75,13 @@ _Change in the average weight of each species by month over the span of 5 years:
 ‘plot image’
 **Song Sparrow**: The pattern of changes in the weight per month is different for each species. It is fairly constant with a few outliers between 2012 to 2016. We can notice that there is a decrease in the average weight during the months of June to November and then an increase after that. But in 2016, there was a significant drop during the month of November. It seems like there is a decrease in the average species weight during winter time and an increase as summer comes around.
 
-## 2. Has the number of birds seen each year been stable or trending in a certain direction?
+### 2. Has the number of birds seen each year been stable or trending in a certain direction?
 
 _Number of Sightings of different species over the years:_
 ‘plot image’
 In this plot, it can be noticed that the number of sightings of Song Sparrows is significantly greater than the rest of the species but has dropped rapidly between 2010 and 2016. The sightings of Bewick's Wren have increased slowly. The sightings of Bushtit and Chestnut-backed Chickadee show slight increase and decrease in their number of sightings.  For Common Yellow Throat sightings, there was a visible fall and rise between 2005 and 2010.
 
-## 3. Has the sex Ratio for birds changed significantly, and does it have a trend?
+### 3. Has the sex Ratio for birds changed significantly, and does it have a trend?
 
 _Change in the Sex Ratio of Different species over the years:_
 ‘plot image’
@@ -89,7 +89,7 @@ _Change in the Sex Ratio of Different species over the years:_
 
 In this bar plot, we were given suggestions on increasing the gaps in between the bars to make it easier to read and understand. We have made that update here and in other similar bar plots for our final deliverable. 
 
-## 4. How is Bird Banding Data Changing over time with respect to the changes in the number of sightings of a species?
+### 4. How is Bird Banding Data Changing over time with respect to the changes in the number of sightings of a species?
 
 _Number of Sightings of Song Sparrow by month over the span of 5 years:_
 ‘plot image’
@@ -99,24 +99,24 @@ In the plot, we can notice that the count is increasing after the month of April
 
 _There could be various possible questions on all these plots. We have listed them and tried to answer them to the best of our understanding and interpretation. They are the following,_ 
 
-* _What was the reason for plotting the N/A's?_
+_What was the reason for plotting the N/A's?_
 
 We had a lot of N/A values in our data and in some cases N/A values were more than the number of male birds. So, we thought it would not be a good idea to exclude them from the plot as it would be misleading.
 
-* _In the plot for question 2, what was the reason for including the years that were excluded (1999 and 2002)?_
+_In the plot for question 2, what was the reason for including the years that were excluded (1999 and 2002)?_
 
 The years 1999 and 2002 had a lot of missing data, so we decided to delete the data from those years during data cleaning. During plotting of the plot 2, we didn't include the data for 1999 and 2002. It was automatically inserted while joining 1998 to 2000 and 2001 to 2003. 
 
-* _What was the issue with the Song Sparrow species from 2010-2016 as the count declined and it had a significant amount of weight loss as well?_
+_What was the issue with the Song Sparrow species from 2010-2016 as the count declined and it had a significant amount of weight loss as well?_
 
 We feel that the Song Sparrows' weight generally declines during migration and breeding periods. It is noticed that their weight generally increases during the winter period. We studied that Song Sparrows eat everything like plants, insects or seeds. The decline in their body weight in November 2016 is probably due to lack of food supply.
 
 **Word Count:** The total word count for our summary document is 2021 words.
 
 ## References:
-•	San Francisco Bay Bird Observatory – Home, Retrieved December 04, 2018  from https://www.sfbbo.org/
-•	Smithsonian’s National Zoo & Conservation Biology Institute, Retrieved December 05, 2018 from https://nationalzoo.si.edu/migratory-birds/what-bird-banding
-•	Coyote Creek Field Station Land bird Banding Research – San Francisco Bay Bird Observatory, Retrieved December 05, 2018 from https://www.sfbbo.org/coyote-creek-field-station-landbird-banding-research.html
+* San Francisco Bay Bird Observatory – Home, Retrieved December 04, 2018  from https://www.sfbbo.org/
+*	Smithsonian’s National Zoo & Conservation Biology Institute, Retrieved December 05, 2018 from https://nationalzoo.si.edu/migratory-birds/what-bird-banding
+*	Coyote Creek Field Station Land bird Banding Research – San Francisco Bay Bird Observatory, Retrieved December 05, 2018 from https://www.sfbbo.org/coyote-creek-field-station-landbird-banding-research.html
 
 
 
