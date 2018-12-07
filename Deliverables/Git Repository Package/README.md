@@ -1,4 +1,4 @@
-# **_Team DataKnights - Readme markdown document_**
+# **_Team DataKnights - Git Repository Package_**
 This is the final deliverable for the data analysis done on _Coyote Creek Field Station_ by team _DataKnights_. 
 
 ## **This team project document includes the following,**
