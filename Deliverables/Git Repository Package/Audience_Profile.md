@@ -70,3 +70,10 @@ Bird research can have many areas of focus, which may include the analysis of di
 * https://www.sfbbo.org/coyote-creek-field-station-landbird-banding-research.html
 * https://www.sfbbo.org/avian-science.html
 * https://www.sfbbo.org/issues-birds-face.html
+
+**Contributors**       
+* Vineeth Reddy Ramasahayam has contributed to the individual and organization sections of this document.
+* Aishwarya Reddy has contributed to the individual and organization sections of this document.
+
+**Proofreader**     
+* David Krupp
