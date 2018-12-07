@@ -9,6 +9,7 @@ setwd("C:/Users/ramas/Documents/ISQA 8086/Coyote Creek/Data and Metadata")
 habitat <- read.csv("C:/Users/ramas/Documents/ISQA 8086/Coyote Creek/Data and Metadata/habitat.csv")
 BandingRecords <- read.csv("C:/Users/ramas/Documents/ISQA 8086/Coyote Creek/Data and Metadata/BandingRecords.csv")
 
+#Data Cleaning
 #Remove unneeded values
 FilterVariables <- subset(BandingRecords, select=c("RowID","SpeciesCode", "BandNumber","CaptureDate","FirstCaptureDate","LastCaptureDate", "CaptureType","Age", "Sex", "TrapSite", "Fat", "BroodPatch", "CloacalProtuberance", "WingMolt", "PrimaryWear", "WingLength", "Weight"))
 
