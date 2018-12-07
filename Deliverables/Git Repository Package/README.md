@@ -40,7 +40,7 @@ The license details for our work can be found **_[here](https://github.com/vinee
 
 **6. Presentation** 
 * Includes our presentation slides in PDF format.
-* The presentation document can be found _[here] ()_
+* The presentation document can be found _[here](https://github.com/vineethreddyramasa/DataKnights/blob/master/Deliverables/Git%20Repository%20Package/Dataknights%20presentation.pdf)_
 
 **7. Contributorship Summary** 
 * Includes a markdown document summarizing the individual contributions for the entire project.
