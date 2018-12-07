@@ -75,41 +75,49 @@ _Change in the average weight of each species by month over the span of 5 years:
 
 ![](GitPackage_files/figure-markdown_github/unnamed-chunk-34-1.png)
 
-**Song Sparrow**: The pattern of changes in the weight per month is different for each species. It is fairly constant with a few outliers between 2012 to 2016. We can notice that there is a decrease in the average weight during the months of June to November and then an increase after that. But in 2016, there was a significant drop during the month of November. It seems like there is a decrease in the average species weight during winter time and an increase as summer comes around.
+**Song Sparrow**: The pattern of changes in the weight per month is different for each species. It is fairly constant with a few outliers between 2012 to 2016. We can notice that there is a decrease in the average weight during the months of June to November and then an increase after that. But in 2016, there was a significant drop during the month of November. It seems like there is a decrease in the average species weight during summer time and an increase as winter comes around.
 
 ### 2. Has the number of birds seen each year been stable or trending in a certain direction?
 
 _Number of Sightings of different species over the years:_
-‘plot image’
+
+![](GitPackage_files/figure-markdown_github/unnamed-chunk-31-1.png)
+
 In this plot, it can be noticed that the number of sightings of Song Sparrows is significantly greater than the rest of the species but has dropped rapidly between 2010 and 2016. The sightings of Bewick's Wren have increased slowly. The sightings of Bushtit and Chestnut-backed Chickadee show slight increase and decrease in their number of sightings.  For Common Yellow Throat sightings, there was a visible fall and rise between 2005 and 2010.
 
 ### 3. Has the sex Ratio for birds changed significantly, and does it have a trend?
 
 _Change in the Sex Ratio of Different species over the years:_
-‘plot image’
-**Bushtit**: We can see in the plot that the number of Female birds is higher as compared to the number of Male birds in Bushtit species. It has not changed drastically in the last 20 years. We plotted this bar plot to compare the count of the species’ gender and see if there was any difference. Here, we can clearly see that the count of females has always been greater as compared to the males. May be the changes in temperatures during maturation can impact the sex of the offspring.
+
+ ![](GitPackage_files/figure-markdown_github/unnamed-chunk-29-1.png)
+ 
+**Bushtit**: We can see in the plot that the number of Female birds is higher as compared to the number of Male birds in Bushtit species. It has not changed drastically in the last 20 years. We plotted this bar plot to compare the count of the species’ gender and see if there was any difference. Here, we can clearly see that the count of females has always been greater as compared to the males. May be the changes in temperatures during maturation can impact the sex of the offspring. However, since there are significant number of unknown values as well, we can draw an exact conclusion.
 
 In this bar plot, we were given suggestions on increasing the gaps in between the bars to make it easier to read and understand. We have made that update here and in other similar bar plots for our final deliverable. 
 
 ### 4. How is Bird Banding Data Changing over time with respect to the changes in the number of sightings of a species?
 
 _Number of Sightings of Song Sparrow by month over the span of 5 years:_
-‘plot image’
+
+![](GitPackage_files/figure-markdown_github/unnamed-chunk-32-1.png)
+
 In the above plot, we performed an analysis for sightings of Song Sparrow per month for 5 years - 2012, 2013, 2014, 2015 and 2016. The x-axis depicts months in a year and the y-axis depicts the count for each month. We found a trend that the number of sightings for Song Sparrow and all the other species is significantly higher in the summer as compared to the winter seasons. We interpreted that, as birds avoid migrating in the cold seasons when there is a lack of food supply, they migrate mostly during the summer period. Thus, that is when the sightings of these bird species are comparatively and distinctively higher. 
 
 In the plot, we can notice that the count is increasing after the month of April and is highest between May and June. The count starts declining towards the month of July and decreases gradually. In the earlier years, like in 2012 and 2013 there was a slight growth in the count during the months of August or September but in the recent years it has only declined. We are assuming the unusual climatic conditions and drastic environmental changes could be the cause of this decline in the latter years.
 
+_Plots for other species can be found in the Final Markdown Document_
+
 _There could be various possible questions on all these plots. We have listed them and tried to answer them to the best of our understanding and interpretation. They are the following,_ 
 
-_What was the reason for plotting the N/A's?_
+**_What was the reason for plotting the N/A's?_**
 
 We had a lot of N/A values in our data and in some cases N/A values were more than the number of male birds. So, we thought it would not be a good idea to exclude them from the plot as it would be misleading.
 
-_In the plot for question 2, what was the reason for including the years that were excluded (1999 and 2002)?_
+**_In the plot for question 2, what was the reason for including the years that were excluded (1999 and 2002)?_**
 
 The years 1999 and 2002 had a lot of missing data, so we decided to delete the data from those years during data cleaning. During plotting of the plot 2, we didn't include the data for 1999 and 2002. It was automatically inserted while joining 1998 to 2000 and 2001 to 2003. 
 
-_What was the issue with the Song Sparrow species from 2010-2016 as the count declined and it had a significant amount of weight loss as well?_
+**_What was the issue with the Song Sparrow species from 2010-2016 as the count declined and it had a significant amount of weight loss as well?_**
 
 We feel that the Song Sparrows' weight generally declines during migration and breeding periods. It is noticed that their weight generally increases during the winter period. We studied that Song Sparrows eat everything like plants, insects or seeds. The decline in their body weight in November 2016 is probably due to lack of food supply.
 
