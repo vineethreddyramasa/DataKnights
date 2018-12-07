@@ -1,6 +1,6 @@
 # R Final Script for the Coyote Creek Data set
 # By Data Knights
-# October 31, 2018
+# December 06, 2018
 
 #Setting the working Directory
 setwd("C:/Users/ramas/Documents/ISQA 8086/Coyote Creek/Data and Metadata")
