@@ -8,7 +8,8 @@ _This markdown document summarizes the individual contribution to each deliverab
 
 ### 2. Audience Profile
 **_Contributors:_**
-* Vineeth Reddy and Aishwarya Reddy contributed to the individual and organizational sections of the document. David Krupp was the proofreader for this assignment.
+* Vineeth Reddy and Aishwarya Reddy contributed to the individual and organizational sections of the document.
+* David Krupp was the proofreader for this assignment.
 
 ### 3. Data Cleaning Documentation
 **_Contributors:_**
@@ -35,6 +36,7 @@ _This markdown document summarizes the individual contribution to each deliverab
 
 ### 7. Final Presentation
 **_Contributors:_**
-* Aishwarya Reddy and Vineeth Reddy worked together on the final presentation of the project. The presentation was proofread by Vineeth Reddy.
+* Aishwarya Reddy and Vineeth Reddy worked together on the final presentation of the project.
+* The presentation was proofread by Vineeth Reddy.
 
 > _Most of the work for all the assignments were done together with each others help and support. The contribution is equal for both the team members. Since our third team member, David Krupp had to unfortunately drop the course after the intial few weeks, Aishwarya Reddy and Vineeth Reddy worked together on everything and contributed the same._
