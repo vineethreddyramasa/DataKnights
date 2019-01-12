@@ -1,5 +1,5 @@
 # **_Team DataKnights - Git Repository Package_**
-This is the final deliverable for the data analysis done on _Coyote Creek Field Station_ by team _DataKnights_. 
+This is the final deliverable for the data analysis done on _Coyote Creek Field Station_ Bird Banding Data by team _DataKnights_. 
 
 ## **This team project document includes the following,**
 1. License for our work
